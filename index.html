@@ -9,6 +9,7 @@
     :root {
       --oak: #1f3f2a;
       --cream: #f4efe6;
+      --text: #2f4636;
     }
 
     body {
@@ -19,18 +20,26 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
+      text-align: center;
     }
 
     .container {
-      text-align: center;
       padding: 1.5rem;
+      max-width: 700px;
+      width: 100%;
     }
 
     .logo {
       max-width: 600px;
       width: 100%;
       height: auto;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tagline {
+      margin: 0 0 2rem;
+      font-size: 1.05rem;
+      color: var(--text);
     }
 
     .buttons {
@@ -62,10 +71,17 @@
 
     <img src="images/OandA_SL_Horiz.png" alt="Oak & Apricot" class="logo">
 
+    <p class="tagline">
+      Public-interest tree research for residents in the Santa Clara Valley
+    </p>
+
     <div class="buttons">
       <a href="/sjtrees/" class="button">
         San José Street Tree Project
       </a>
+
+      <!-- future buttons -->
+      <!-- <a href="/another/" class="button">Another Resource</a> -->
     </div>
 
   </div>
