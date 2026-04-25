@@ -3,478 +3,264 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>San José Street Tree Project</title>
-
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
+  <title>San José Street Tree Pilot Study | Oak & Apricot</title>
 
   <style>
     :root {
-      --bg: #f4efe6;
-      --card: #fbf8f2;
-      --ink: #2f3a2f;
-      --muted: #6e7465;
-      --line: #d6d2c4;
-      --accent: #7a5a2b;
-      --accent-dark: #4e3a1e;
-      --soft: #ece6d8;
-      --warn: #f3ead2;
-      --shadow: 0 8px 24px rgba(60, 50, 30, 0.08);
-      --radius: 18px;
-      --max: 980px;
-      --visited: #6f7f5f;
-      --inprogress: #c2a35a;
-      --notvisited: #cfc9bb;
+      --oak: #355e3b;
+      --apricot: #d4945a;
+      --cream: #f5efe6;
+      --card: #fffdf8;
+      --text: #24352b;
+      --muted: #5f6f64;
+      --border: #d8c8b6;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.55;
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 24px 18px 64px;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(135deg, #eef5ef 0%, #dfeadf 72%, #ece6d8 100%);
-      border-bottom: 1px solid var(--line);
+      background: var(--oak);
+      color: white;
+      padding: 2rem 1.25rem;
+      text-align: center;
     }
 
-    .hero {
-      padding: 34px 18px 28px;
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    .kicker {
-      display: inline-block;
-      padding: 6px 10px;
-      background: rgba(255,255,255,0.65);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 0.88rem;
-      color: #3e4a3e;
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      line-height: 1.1;
-      color: #243328;
-    }
-
-    .subtitle {
-      max-width: 760px;
-      font-size: 1.05rem;
-      color: #5e6d60;
+    header h1 {
       margin: 0;
-    }
-
-    .notice {
-      margin-top: 18px;
-      background: var(--warn);
-      border: 1px solid #d9cfaa;
-      border-radius: 14px;
-      padding: 14px 16px;
-      font-size: 0.98rem;
-    }
-
-    .grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .stats {
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      margin-top: 22px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px;
-    }
-
-    .stat-value {
       font-size: 2rem;
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 8px;
-      color: var(--accent-dark);
     }
 
-    .stat-label {
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .stat-note,
-    .muted {
-      color: var(--muted);
-      font-size: 0.95rem;
+    header p {
+      max-width: 760px;
+      margin: 0.75rem auto 0;
+      font-size: 1.05rem;
     }
 
     main {
-      margin-top: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
     }
 
-    .main-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 0.9fr;
-      gap: 18px;
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     h2 {
-      margin: 0 0 12px;
-      font-size: 1.25rem;
-      color: #4a4f3d;
+      margin-top: 0;
+      color: var(--oak);
+      font-size: 1.35rem;
     }
 
     h3 {
-      margin: 18px 0 8px;
-      font-size: 1rem;
-      color: #5a4a2e;
+      margin-bottom: 0.35rem;
+      color: var(--oak);
     }
 
     ul {
-      margin: 10px 0 0 18px;
-      padding: 0;
+      padding-left: 1.25rem;
     }
 
-    li + li { margin-top: 6px; }
-
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
+    li {
+      margin-bottom: 0.45rem;
     }
 
-    .pill {
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: var(--soft);
-      border: 1px solid #d8d0bb;
-      font-size: 0.94rem;
-      color: #4e4a3a;
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .button {
-      display: inline-block;
-      text-decoration: none;
-      padding: 11px 14px;
+    .stat-card {
+      background: #f8f2e9;
+      border: 1px solid var(--border);
       border-radius: 12px;
-      border: 1px solid var(--accent);
-      background: var(--accent);
-      color: white;
-      font-weight: 700;
+      padding: 1rem;
+      text-align: center;
     }
 
-    .button:hover {
-      background: var(--accent-dark);
-      border-color: var(--accent-dark);
+    .stat-number {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--oak);
     }
 
-    .button.secondary {
-      background: var(--card);
-      color: var(--accent-dark);
-    }
-
-    .button.secondary:hover {
-      background: var(--soft);
-    }
-
-    .faq {
-      margin-top: 18px;
-    }
-
-    details {
-      border-top: 1px solid var(--line);
-      padding: 12px 0;
-    }
-
-    details:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: #4a4f3d;
-    }
-
-    .map-wrap {
-      margin-top: 18px;
-    }
-
-    #map {
-      width: 100%;
-      height: 520px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      overflow: hidden;
-    }
-
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
-      font-size: 0.95rem;
+    .stat-label {
       color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-left: 4px solid var(--apricot);
+      padding-left: 1rem;
+      margin-top: 1rem;
     }
-
-    .swatch {
-      width: 14px;
-      height: 14px;
-      border-radius: 3px;
-      border: 1px solid rgba(0,0,0,0.15);
-      display: inline-block;
-    }
-
-    .swatch.visited { background: var(--visited); }
-    .swatch.inprogress { background: var(--inprogress); }
-    .swatch.notvisited { background: var(--notvisited); }
 
     footer {
-      margin-top: 28px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
+      text-align: center;
       color: var(--muted);
-      font-size: 0.92rem;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 800px) {
-      .main-grid {
-        grid-template-columns: 1fr;
-      }
-
-      #map {
-        height: 420px;
-      }
+    a {
+      color: var(--oak);
+      font-weight: bold;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="hero">
-      <div class="kicker">Public information page</div>
-      <h1>San José Street Tree Project</h1>
-      <p class="subtitle">
-        This page explains why I may be visiting or observing street trees in your neighborhood. It is intended as a brief public information page for residents, not a full research report.
-      </p>
-      <div class="notice">
-        <strong>Please note:</strong> This page shares general project information only. It does not report homeowner-specific findings, exact tree locations, or property-level conclusions.
-      </div>
-    </div>
+    <h1>San José Street Tree Pilot Field Study</h1>
+    <p>
+      A neighborhood-scale field study examining the status of young street trees
+      in San José Council District 10 approximately five years after inventory.
+    </p>
   </header>
 
-  <div class="wrap">
-    <section class="grid stats">
-      <div class="card">
-        <div class="stat-value">4,123</div>
-        <div class="stat-label">Sample tree sites</div>
-        <div class="stat-note">Target field verification sites in the working sample.</div>
-      </div>
-      <div class="card">
-        <div class="stat-value">63</div>
-        <div class="stat-label">Neighborhoods in sample</div>
-        <div class="stat-note">Neighborhood units selected for field review.</div>
-      </div>
+  <main>
+    <section>
+      <h2>Purpose</h2>
+      <p>
+        In summer 2025, I revisited a defined group of San José street tree sites
+        to better understand early survival, replacement, and vacancy patterns.
+        The project focused on small-diameter trees recorded in the City’s 2020
+        street tree inventory, using field verification to assess what remained,
+        what had been replaced, and where planting sites were vacant.
+      </p>
     </section>
 
-    <main class="main-grid">
-      <section class="card">
-        <h2>What this project is about</h2>
-        <p>
-          This project is examining what happens at previously documented street tree planting sites over time, especially where trees were recorded as being in poor condition or dead in a 2020 baseline inventory. The focus is on broad patterns of tree persistence, replacement, and site conversion.
-        </p>
-        <p>
-          In plain terms, I am trying to understand whether former tree sites remain tree sites, become planted with something else, or are converted to non-planting surfaces. The project also considers how these choices relate to long-term canopy potential and the City of San José’s urban forest goals.
-        </p>
+    <section>
+      <h2>Methods</h2>
+      <ul>
+        <li>Field survey conducted in Summer 2025 across San José Council District 10.</li>
+        <li>Targeted street tree sites recorded in the 2020 City inventory as <strong>&lt;2&quot; DBH</strong> to approximate recent plantings.</li>
+        <li>Focused on <strong>park strip trees</strong>; also reviewed sites labeled “N/A” and “Unassigned,” which field verification showed frequently corresponded to park strip locations.</li>
+        <li>Systematically revisited eligible sites to assess current status: same tree, replacement tree, or vacant site.</li>
+        <li>This effort functioned as a <strong>near-census of the defined subgroup</strong> within the study area.</li>
+        <li>DBH was used as a proxy for age, with recognition that growth rates vary by species, irrigation, and site constraints.</li>
+      </ul>
+    </section>
 
-        <h3>What I may be doing in the field</h3>
-        <ul>
-          <li>Looking at the current condition of a street tree planting site from the public right-of-way</li>
-          <li>Checking whether the original tree is still present</li>
-          <li>Noting whether the site now contains a new tree, another plant type, bare planting area, hardscape, or a stump</li>
-          <li>Recording observations in a mobile GIS field form</li>
-        </ul>
+    <section>
+      <h2>Key Findings</h2>
 
-        <h3>What I am <em>not</em> doing</h3>
-        <ul>
-          <li>I am not evaluating private yards beyond what can be observed from public space</li>
-          <li>I am not issuing citations or acting in an enforcement role</li>
-          <li>I am not publishing household-specific findings on this page</li>
-        </ul>
-
-        <div class="cta-row">
-          <a class="button" href="#map-section">View neighborhood map</a>
-          <a class="button secondary" href="https://www.sanjoseca.gov/home/showpublisheddocument/83642/637837331099770000" target="_blank" rel="noopener noreferrer">City urban forest goals PDF</a>
-        </div>
-      </section>
-
-      <aside class="card">
-        <h2>At-a-glance project details</h2>
-        <div class="pill-list">
-          <div class="pill">2020 baseline inventory</div>
-          <div class="pill">2026 field verification</div>
-          <div class="pill">Public right-of-way observations</div>
-          <div class="pill">Neighborhood-level map only</div>
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-number">1,374</span>
+          <span class="stat-label">street tree sites surveyed</span>
         </div>
 
-        <h3>Current site outcome categories</h3>
-        <div class="pill-list">
-          <div class="pill">SameTree</div>
-          <div class="pill">ReplacementTree</div>
-          <div class="pill">OtherWoodyPlant</div>
-          <div class="pill">NonWoodyPlant</div>
-          <div class="pill">BareSoilMulch</div>
-          <div class="pill">Hardscape</div>
-          <div class="pill">Stump</div>
+        <div class="stat-card">
+          <span class="stat-number">77%</span>
+          <span class="stat-label">same tree remained</span>
         </div>
-      </aside>
-    </main>
 
-    <section class="card map-wrap" id="map-section">
-      <h2>Neighborhood fieldwork map</h2>
-      <p class="muted">
-        This map shows neighborhood-level fieldwork status only. It does not show individual trees or exact addresses.
+        <div class="stat-card">
+          <span class="stat-number">23%</span>
+          <span class="stat-label">vacant or replaced</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-number">14%</span>
+          <span class="stat-label">vacant sites</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-number">10%</span>
+          <span class="stat-label">new replacement trees</span>
+        </div>
+      </div>
+
+      <p class="note">
+        These results describe one district and one defined subgroup of street tree
+        sites. They should be interpreted as a pilot snapshot, not a citywide trend.
+      </p>
+    </section>
+
+    <section>
+      <h2>Species Patterns</h2>
+      <ul>
+        <li>
+          <em>Lagerstroemia indica</em> (crape myrtle) appeared both resilient in place
+          and commonly selected as a replacement tree.
+        </li>
+        <li>
+          Crape myrtle had a relatively low observed loss rate in this dataset and
+          was also the most common identified replacement taxon.
+        </li>
+        <li>
+          Some taxa showed higher observed loss rates within this sample, including
+          <em>Prunus</em>, <em>Koelreuteria bipinnata</em>, <em>Ligustrum lucidum</em>,
+          and <em>Jacaranda mimosifolia</em>.
+        </li>
+        <li>
+          These patterns may reflect differences in species tolerance, planting site
+          conditions, irrigation, maintenance, and neighborhood planting preferences.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Interpretation</h2>
+      <p>
+        The data suggest that many small-diameter street trees recorded in 2020 were
+        still present in 2025, while a substantial minority of sites had either become
+        vacant or been replanted. The vacancy rate is especially important because an
+        empty planting site represents delayed or absent canopy recovery.
       </p>
 
-      <div id="map"></div>
-
-      <div class="legend">
-        <div class="legend-item"><span class="swatch visited"></span> Visited</div>
-        <div class="legend-item"><span class="swatch inprogress"></span> In progress</div>
-        <div class="legend-item"><span class="swatch notvisited"></span> Not yet visited</div>
-      </div>
+      <p>
+        The apparent success of crape myrtle in this sample may reflect both its
+        relative tolerance of constrained street environments and its continued use
+        in replacement planting palettes. However, these observations should be
+        interpreted cautiously because site conditions, irrigation, species growth
+        rates, and maintenance histories vary widely.
+      </p>
     </section>
 
-    <section class="card faq">
-      <h2>Frequently asked questions</h2>
-      <details>
-        <summary>Why are you looking at street trees in front of homes?</summary>
-        <p>
-          The project is focused on street tree planting sites and long-term patterns in urban forest change. Observations are made from public space and are limited to broad site conditions relevant to the study.
-        </p>
-      </details>
-      <details>
-        <summary>Are you with the City?</summary>
-        <p>
-          No. I'm an independent researcher who is not affiliated with the city or any business interest. My goal is to share new information about the San Jose urban forest with arborists, policymakers, and the general public.
-        </p>
-      </details>
-      <details>
-        <summary>Will exact results for my property be shared here?</summary>
-        <p>
-          No. This page is intended for general project explanation and neighborhood-level fieldwork status only.
-        </p>
-      </details>
+    <section>
+      <h2>Future Questions</h2>
+      <ul>
+        <li>How do early street tree survival and replacement rates vary across San José districts?</li>
+        <li>How strongly do planting space, irrigation access, and surrounding land use affect establishment?</li>
+        <li>Are certain species or size classes more reliable in constrained park strip environments?</li>
+        <li>How can QGIS and QField support efficient, repeatable urban forest monitoring at neighborhood scale?</li>
+      </ul>
     </section>
 
-    <footer>
-      San José Street Tree Project public information page. Neighborhood map shows broad fieldwork status only.
-    </footer>
-  </div>
+    <section>
+      <h2>About This Work</h2>
+      <p>
+        This pilot field study was conducted independently as part of Oak & Apricot’s
+        broader interest in public-interest tree research for residents of the Santa
+        Clara Valley. The goal is to make local urban forest patterns more visible,
+        understandable, and useful for future stewardship.
+      </p>
+    </section>
+  </main>
 
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-
-  <script>
-    const map = L.map('map', {
-      scrollWheelZoom: false
-    }).setView([37.3387, -121.8853], 11);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    function getStatusColor(status) {
-      switch (status) {
-        case 'visited':
-          return '#6f7f5f';
-        case 'in_progress':
-          return '#c2a35a';
-        case 'not_visited':
-        default:
-          return '#cfc9bb';
-      }
-    }
-
-    function styleFeature(feature) {
-      return {
-        fillColor: getStatusColor(feature.properties.status),
-        weight: 1.5,
-        opacity: 1,
-        color: '#6e7465',
-        fillOpacity: 0.65
-      };
-    }
-
-    fetch('neighborhood_status.geojson')
-      .then(response => response.json())
-      .then(data => {
-        const geojsonLayer = L.geoJSON(data, {
-          style: styleFeature,
-          onEachFeature: function (feature, layer) {
-            const props = feature.properties || {};
-            const name = props.name || 'Neighborhood';
-            const sampleN = props.sample_n ?? '—';
-            const status = props.status || 'not_visited';
-
-            const statusLabel = status === 'in_progress'
-              ? 'In progress'
-              : status === 'visited'
-                ? 'Visited'
-                : 'Not yet visited';
-
-            layer.bindPopup(`
-              <strong>${name}</strong><br>
-              Sample tree sites: ${sampleN}<br>
-              Fieldwork status: ${statusLabel}
-            `);
-          }
-        }).addTo(map);
-
-        map.fitBounds(geojsonLayer.getBounds(), { padding: [20, 20] });
-      })
-      .catch(error => {
-        console.error('Error loading GeoJSON:', error);
-        document.getElementById('map').innerHTML =
-          '<div style="padding:20px;color:#6e7465;">Map data could not be loaded.</div>';
-      });
-  </script>
+  <footer>
+    Oak & Apricot · Public-interest tree research for residents of the Santa Clara Valley
+  </footer>
 </body>
 </html>
