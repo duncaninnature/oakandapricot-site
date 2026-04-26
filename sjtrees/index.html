@@ -41,7 +41,7 @@
     }
 
     header p {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0.75rem auto 0;
       font-size: 1.05rem;
     }
@@ -66,11 +66,6 @@
       font-size: 1.35rem;
     }
 
-    h3 {
-      margin-bottom: 0.35rem;
-      color: var(--oak);
-    }
-
     ul {
       padding-left: 1.25rem;
     }
@@ -81,7 +76,7 @@
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
       margin-top: 1rem;
     }
@@ -119,8 +114,8 @@
       border-collapse: collapse;
       margin-top: 1rem;
       font-size: 0.95rem;
-      overflow: hidden;
       border-radius: 12px;
+      overflow: hidden;
     }
 
     th {
@@ -160,236 +155,197 @@
 
 <body>
   <header>
-    <h1>San José Street Tree Pilot Field Study</h1>
+    <h1>San José Street Tree Pilot Study</h1>
     <p>
-      A neighborhood-scale field study examining the status of young street trees
-      in San José Council District 10 approximately five years after inventory.
+      A field study examining young park strip street trees in San José Council District 10,
+      with attention to survival, loss, replacement, and future neighborhood canopy.
     </p>
   </header>
 
   <main>
     <section>
-      <h2>Purpose</h2>
+      <h2>Overview</h2>
       <p>
-        In summer 2025, I revisited a defined group of San José street tree sites
-        to better understand early survival, replacement, and vacancy patterns.
-        The project focused on small-diameter trees recorded in the City’s 2020
-        street tree inventory, using field verification to assess what remained,
-        what had been replaced, and where planting sites were vacant.
+        This pilot study was motivated by curiosity about the role that San José residents
+        play in urban forest stewardship. I was particularly interested in public
+        right-of-way trees in park strips: the planting areas between sidewalk and street
+        that are commonly maintained by adjacent property owners.
       </p>
       <p>
-        Young street trees are especially important because they represent the next
-        generation of neighborhood canopy. When recently planted trees fail, are not
-        replaced, or are replaced with smaller-growing species, the effects may not
-        be obvious immediately but can shape future shade, cooling, and canopy
-        distribution for decades.
+        Young street trees matter because they represent the next generation of neighborhood
+        canopy. If recently planted trees die, are removed, are not replaced, or are replaced
+        with smaller-growing species, those decisions can shape future shade, cooling, and
+        canopy distribution for decades.
       </p>
     </section>
 
     <section>
-      <h2>Methods</h2>
+      <h2>Sampling</h2>
       <ul>
-        <li>Field survey conducted in Summer 2025 across San José Council District 10.</li>
-        <li>Targeted street tree sites recorded in the 2020 City inventory as <strong>&lt;2&quot; DBH</strong> to approximate recent plantings.</li>
-        <li>Focused on <strong>park strip trees</strong>; also reviewed sites labeled “N/A” and “Unassigned,” which field verification showed frequently corresponded to park strip locations.</li>
-        <li>Systematically revisited eligible sites to assess current status: same tree, replacement tree, or vacant site.</li>
-        <li>This effort functioned as a <strong>near-census of the defined subgroup</strong> within the study area.</li>
-        <li>DBH was used as a proxy for age, with recognition that growth rates vary by species, irrigation, and site constraints.</li>
+        <li>The study was limited to San José Council District 10.</li>
+        <li>The target population was trees estimated to have been planted roughly 5–10 years prior to 2025.</li>
+        <li>I visited every tree in San José’s public GIS street tree inventory that had a trunk diameter of less than 2 inches in 2020 and was planted in a park strip.</li>
+        <li>At each site, I recorded whether the original tree was still present, whether a new tree had replaced it, or whether the planting site was vacant.</li>
+        <li>For new trees, I recorded the replacement species.</li>
       </ul>
+
+      <p class="note">
+        This was designed as a near-census of a defined subgroup, not a random citywide sample.
+      </p>
     </section>
 
-  <section>
-  <h2>Status of Original Trees</h2>
-  <p>
-    Of the 1,374 street tree sites surveyed, most still retained the same tree
-    recorded in the 2020 inventory, while a minority of sites
-    were either vacant or had been replanted within approximately five years.
-  </p>
+    <section>
+      <h2>Hypothesis</h2>
+      <p>
+        Survival rates among newly planted park strip trees significantly vary across species.
+      </p>
+    </section>
 
-  <div class="stats">
-    <div class="stat-card">
-      <span class="stat-number">77%</span>
-      <span class="stat-label">Same Tree</span>
-      <p>1,053 sites</p>
-    </div>
+    <section>
+      <h2>Overall Results</h2>
+      <p>
+        Across the surveyed sites, 297 of 1,310 original trees were lost. This means that
+        approximately 22.7% of the original trees were no longer present as the same tree
+        during the 2025 field check.
+      </p>
 
-    <div class="stat-card">
-      <span class="stat-number">14%</span>
-      <span class="stat-label">Vacant</span>
-      <p>186 sites</p>
-    </div>
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-number">1,310</span>
+          <span class="stat-label">Original Trees Surveyed</span>
+        </div>
 
-    <div class="stat-card">
-      <span class="stat-number">10%</span>
-      <span class="stat-label">New Tree</span>
-      <p>135 sites</p>
-    </div>
-  </div>
+        <div class="stat-card">
+          <span class="stat-number">297</span>
+          <span class="stat-label">Trees Lost</span>
+        </div>
 
-  <p class="note">
-    These results describe one district and one defined subgroup of street tree
-    sites. They should be interpreted as a pilot snapshot, not a citywide trend.
-  </p>
-</section>
+        <div class="stat-card">
+          <span class="stat-number">22.7%</span>
+          <span class="stat-label">Overall Loss Rate</span>
+        </div>
+      </div>
+    </section>
 
     <section>
       <h2>Loss Rates Among Common Original Taxa</h2>
       <p>
-        The following taxa were among the most common original trees in the study
-        group. This table focuses on frequently occurring taxa and does not include
-        species represented by only a small number of sites.
+        The following table shows loss rates for common original taxa in the study group.
+        It is arranged from lowest to highest loss rate.
       </p>
 
       <table>
         <tr>
-          <th>Original Taxon</th>
-          <th>Total Sites</th>
-          <th>Lost</th>
-          <th>Loss Rate</th>
+          <th>Species</th>
+          <th>Total Trees</th>
+          <th>Number Lost</th>
+          <th>% Loss</th>
         </tr>
         <tr>
-          <td><em>Lagerstroemia indica</em> (crape myrtle)</td>
-          <td>428</td>
-          <td>45</td>
-          <td>10.5%</td>
+          <td><em>Prunus cerasifera</em></td>
+          <td>29</td>
+          <td>3</td>
+          <td>10.3%</td>
         </tr>
         <tr>
-          <td><em>Pistacia chinensis</em> (Chinese pistache)</td>
-          <td>104</td>
-          <td>12</td>
-          <td>11.5%</td>
+          <td><em>Lagerstroemia indica</em></td>
+          <td>437</td>
+          <td>48</td>
+          <td>11.0%</td>
         </tr>
         <tr>
-          <td><em>Ginkgo biloba</em> (ginkgo)</td>
+          <td><em>Pistacia chinensis</em></td>
+          <td>112</td>
+          <td>13</td>
+          <td>11.6%</td>
+        </tr>
+        <tr>
+          <td><em>Eriobotrya japonica</em></td>
+          <td>20</td>
+          <td>3</td>
+          <td>15.0%</td>
+        </tr>
+        <tr>
+          <td><em>Ginkgo biloba</em></td>
           <td>81</td>
           <td>15</td>
           <td>18.5%</td>
         </tr>
         <tr>
-          <td><em>Acer rubrum</em> (red maple)</td>
-          <td>29</td>
+          <td><em>Acer rubrum</em></td>
+          <td>32</td>
           <td>6</td>
-          <td>20.7%</td>
+          <td>18.8%</td>
         </tr>
         <tr>
-          <td><em>Acer × freemanii</em> (Freeman maple)</td>
-          <td>33</td>
-          <td>9</td>
-          <td>27.3%</td>
-        </tr>
-        <tr>
-          <td><em>Acer palmatum</em> (Japanese maple)</td>
-          <td>29</td>
+          <td><em>Acer × freemanii</em></td>
+          <td>55</td>
           <td>12</td>
-          <td>41.4%</td>
+          <td>21.8%</td>
         </tr>
         <tr>
-          <td><em>Pyrus calleryana</em> (Callery pear)</td>
-          <td>18</td>
-          <td>7</td>
-          <td>38.9%</td>
-        </tr>
-        <tr>
-          <td><em>Zelkova serrata</em> (Japanese zelkova)</td>
-          <td>18</td>
+          <td><em>Magnolia grandiflora</em></td>
+          <td>23</td>
           <td>6</td>
-          <td>33.3%</td>
+          <td>26.1%</td>
         </tr>
         <tr>
-          <td><em>Liquidambar styraciflua</em> (sweetgum)</td>
-          <td>17</td>
-          <td>6</td>
-          <td>35.3%</td>
-        </tr>
-        <tr>
-          <td><em>Tristaniopsis laurina</em> (water gum)</td>
+          <td><em>Tristaniopsis laurina</em></td>
           <td>23</td>
           <td>8</td>
           <td>34.8%</td>
         </tr>
+        <tr>
+          <td><em>Acer palmatum</em></td>
+          <td>29</td>
+          <td>12</td>
+          <td>41.4%</td>
+        </tr>
       </table>
 
       <p class="note">
-        Loss rate means the percentage of original trees that were no longer present
-        as the same tree during the 2025 field check.
+        “Lost” means the original tree was no longer present as the same tree during the field check.
+        Some lost trees had been replaced, while others were vacant.
       </p>
     </section>
 
     <section>
-      <h2>Replacement Taxa</h2>
+      <h2>Replacement Trees</h2>
       <p>
-        When original trees were replaced, the new trees reflected a mix of commonly
-        used street tree species and smaller ornamental choices. Crape myrtle was
-        the most frequently observed replacement taxon in this dataset.
+        Replacement trees were not evenly distributed across species. Crape myrtle was the
+        most frequently observed replacement taxon among recorded replacements.
       </p>
 
       <table>
         <tr>
-          <th>Replacement Taxon</th>
-          <th>Count</th>
+          <th>Species</th>
+          <th>Number of Replacements</th>
+          <th>Number of Addresses</th>
         </tr>
         <tr>
-          <td><em>Lagerstroemia indica</em> (crape myrtle)</td>
+          <td><em>Lagerstroemia indica</em> — crape myrtle</td>
           <td>26</td>
+          <td>23</td>
         </tr>
         <tr>
-          <td><em>Pistacia chinensis</em> (Chinese pistache)</td>
+          <td><em>Pistacia chinensis</em> — Chinese pistache</td>
           <td>8</td>
+          <td>7</td>
         </tr>
         <tr>
-          <td><em>Zelkova serrata</em> (Japanese zelkova)</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td><em>Prunus cerasifera</em> (purple-leaf plum)</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td><em>Podocarpus macrophyllus</em> (yew pine)</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td><em>Citrus</em> spp. (citrus)</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td><em>Acer palmatum</em> (Japanese maple)</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td><em>Platanus × acerifolia</em> (London plane tree)</td>
-          <td>3</td>
+          <td><em>Zelkova serrata</em> — Japanese zelkova</td>
+          <td>5</td>
+          <td>5</td>
         </tr>
       </table>
     </section>
 
     <section>
-      <h2>Interpretation</h2>
-      <p>
-        The results suggest that many small-diameter street trees recorded in 2020
-        were still present in 2025, but early tree turnover remains meaningful.
-        A vacant planting site is especially important because it represents delayed
-        or absent canopy recovery. A replacement tree may restart the canopy-growth
-        timeline, but it still indicates that the original planting did not persist.
-      </p>
-
-      <p>
-        Species patterns should be interpreted cautiously. Apparent differences in
-        loss rates may reflect species tolerance, nursery stock quality, planting
-        site size, irrigation, soil conditions, homeowner maintenance, exposure,
-        or neighborhood planting preferences. Still, these patterns help identify
-        practical questions for future monitoring and more detailed analysis.
-      </p>
-    </section>
-
-    <section>
-      <h2>Future Questions</h2>
+      <h2>Future Research Questions</h2>
       <ul>
-        <li>How do early street tree survival and replacement rates vary across San José districts?</li>
-        <li>How strongly do planting space, irrigation access, and surrounding land use affect establishment?</li>
-        <li>Are certain species or size classes more reliable in constrained park strip environments?</li>
-        <li>How often do vacant planting sites remain vacant over multiple years?</li>
-        <li>How can QGIS and QField support efficient, repeatable urban forest monitoring at neighborhood scale?</li>
+        <li>How do these results compare with other San José districts and with the citywide street tree population?</li>
+        <li>What site, species, maintenance, irrigation, nursery-stock, or neighborhood factors help explain why some young trees appear to perform more poorly than others?</li>
+        <li>How do resident tree replacement decisions affect San José’s long-term Community Forest Management goals, especially canopy expansion, shade equity, and species diversity?</li>
       </ul>
     </section>
   </main>
