@@ -1,206 +1,421 @@
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    overflow: hidden;
-    border-radius: 12px;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>San José Street Tree Pilot Study | Oak & Apricot</title>
 
-  th {
-    background: var(--oak);
-    color: white;
-    text-align: left;
-    padding: 0.75rem;
-  }
+  <style>
+    :root {
+      --oak: #355e3b;
+      --apricot: #d4945a;
+      --cream: #f5efe6;
+      --card: #fffdf8;
+      --text: #24352b;
+      --muted: #5f6f64;
+      --border: #d8c8b6;
+    }
 
-  td {
-    padding: 0.7rem 0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  tr:nth-child(even) td {
-    background: #f8f2e9;
-  }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-  tr:last-child td {
-    border-bottom: none;
-  }
+    header {
+      background: var(--oak);
+      color: white;
+      padding: 2rem 1.25rem;
+      text-align: center;
+    }
 
-  .results-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
 
-  .result-card {
-    background: #f8f2e9;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1rem;
-    text-align: center;
-  }
+    header p {
+      max-width: 760px;
+      margin: 0.75rem auto 0;
+      font-size: 1.05rem;
+    }
 
-  .result-card strong {
-    display: block;
-    font-size: 2rem;
-    color: var(--oak);
-    line-height: 1.1;
-  }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
 
-  .result-card span {
-    color: var(--muted);
-    font-size: 0.95rem;
-  }
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
 
-  .section-intro {
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-  }
-</style>
+    h2 {
+      margin-top: 0;
+      color: var(--oak);
+      font-size: 1.35rem;
+    }
 
-<section>
-  <h2>Status of Original Trees</h2>
+    h3 {
+      margin-bottom: 0.35rem;
+      color: var(--oak);
+    }
 
-  <div class="results-grid">
-    <div class="result-card">
-      <strong>77%</strong>
-      <span>Same Tree</span>
-      <p>1,053 sites</p>
-    </div>
+    ul {
+      padding-left: 1.25rem;
+    }
 
-    <div class="result-card">
-      <strong>14%</strong>
-      <span>Vacant</span>
-      <p>186 sites</p>
-    </div>
+    li {
+      margin-bottom: 0.45rem;
+    }
 
-    <div class="result-card">
-      <strong>10%</strong>
-      <span>New Tree</span>
-      <p>135 sites</p>
-    </div>
-  </div>
-</section>
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
 
-<section>
-  <h2>Loss Rates Among Common Original Taxa</h2>
-  <p class="section-intro">
-    The following taxa represent the most commonly observed original trees in the study group. 
-    This list emphasizes frequently occurring species and does not include taxa represented by only a small number of sites.
-  </p>
+    .stat-card {
+      background: #f8f2e9;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
 
-  <table>
-    <tr>
-      <th>Original Taxon</th>
-      <th>Total Sites</th>
-      <th>Lost</th>
-      <th>Loss Rate</th>
-    </tr>
-    <tr>
-      <td><em>Lagerstroemia indica</em> (crape myrtle)</td>
-      <td>428</td>
-      <td>45</td>
-      <td>10.5%</td>
-    </tr>
-    <tr>
-      <td><em>Pistacia chinensis</em> (Chinese pistache)</td>
-      <td>104</td>
-      <td>12</td>
-      <td>11.5%</td>
-    </tr>
-    <tr>
-      <td><em>Ginkgo biloba</em> (ginkgo)</td>
-      <td>81</td>
-      <td>15</td>
-      <td>18.5%</td>
-    </tr>
-    <tr>
-      <td><em>Acer rubrum</em> (red maple)</td>
-      <td>29</td>
-      <td>6</td>
-      <td>20.7%</td>
-    </tr>
-    <tr>
-      <td><em>Acer × freemanii</em> (Freeman maple)</td>
-      <td>33</td>
-      <td>9</td>
-      <td>27.3%</td>
-    </tr>
-    <tr>
-      <td><em>Acer palmatum</em> (Japanese maple)</td>
-      <td>29</td>
-      <td>12</td>
-      <td>41.4%</td>
-    </tr>
-    <tr>
-      <td><em>Pyrus calleryana</em> (Callery pear)</td>
-      <td>18</td>
-      <td>7</td>
-      <td>38.9%</td>
-    </tr>
-    <tr>
-      <td><em>Zelkova serrata</em> (Japanese zelkova)</td>
-      <td>18</td>
-      <td>6</td>
-      <td>33.3%</td>
-    </tr>
-    <tr>
-      <td><em>Liquidambar styraciflua</em> (sweetgum)</td>
-      <td>17</td>
-      <td>6</td>
-      <td>35.3%</td>
-    </tr>
-    <tr>
-      <td><em>Tristaniopsis laurina</em> (water gum)</td>
-      <td>23</td>
-      <td>8</td>
-      <td>34.8%</td>
-    </tr>
-  </table>
-</section>
+    .stat-number {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--oak);
+    }
 
-<section>
-  <h2>Replacement Taxa</h2>
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-  <table>
-    <tr>
-      <th>Replacement Taxon</th>
-      <th>Count</th>
-    </tr>
-    <tr>
-      <td><em>Lagerstroemia indica</em> (crape myrtle)</td>
-      <td>26</td>
-    </tr>
-    <tr>
-      <td><em>Pistacia chinensis</em> (Chinese pistache)</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><em>Zelkova serrata</em> (Japanese zelkova)</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><em>Prunus cerasifera</em> (purple-leaf plum)</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><em>Podocarpus macrophyllus</em> (yew pine)</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><em>Citrus</em> spp. (citrus)</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><em>Acer palmatum</em> (Japanese maple)</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td><em>Platanus × acerifolia</em> (London plane)</td>
-      <td>3</td>
-    </tr>
-  </table>
-</section>
+    .note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-left: 4px solid var(--apricot);
+      padding-left: 1rem;
+      margin-top: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th {
+      background: var(--oak);
+      color: white;
+      text-align: left;
+      padding: 0.75rem;
+    }
+
+    td {
+      padding: 0.7rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8f2e9;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--oak);
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>San José Street Tree Pilot Field Study</h1>
+    <p>
+      A neighborhood-scale field study examining the status of young street trees
+      in San José Council District 10 approximately five years after inventory.
+    </p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Purpose</h2>
+      <p>
+        In summer 2025, I revisited a defined group of San José street tree sites
+        to better understand early survival, replacement, and vacancy patterns.
+        The project focused on small-diameter trees recorded in the City’s 2020
+        street tree inventory, using field verification to assess what remained,
+        what had been replaced, and where planting sites were vacant.
+      </p>
+      <p>
+        Young street trees are especially important because they represent the next
+        generation of neighborhood canopy. When recently planted trees fail, are not
+        replaced, or are replaced with smaller-growing species, the effects may not
+        be obvious immediately but can shape future shade, cooling, and canopy
+        distribution for decades.
+      </p>
+    </section>
+
+    <section>
+      <h2>Methods</h2>
+      <ul>
+        <li>Field survey conducted in Summer 2025 across San José Council District 10.</li>
+        <li>Targeted street tree sites recorded in the 2020 City inventory as <strong>&lt;2&quot; DBH</strong> to approximate recent plantings.</li>
+        <li>Focused on <strong>park strip trees</strong>; also reviewed sites labeled “N/A” and “Unassigned,” which field verification showed frequently corresponded to park strip locations.</li>
+        <li>Systematically revisited eligible sites to assess current status: same tree, replacement tree, or vacant site.</li>
+        <li>This effort functioned as a <strong>near-census of the defined subgroup</strong> within the study area.</li>
+        <li>DBH was used as a proxy for age, with recognition that growth rates vary by species, irrigation, and site constraints.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Status of Original Trees</h2>
+      <p>
+        Of the 1,374 street tree sites surveyed, most still retained the same tree
+        recorded in the 2020 inventory. However, a substantial minority of sites
+        were either vacant or had been replanted with a new tree.
+      </p>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-number">1,053</span>
+          <span class="stat-label">same tree</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-number">186</span>
+          <span class="stat-label">vacant sites</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-number">135</span>
+          <span class="stat-label">new trees</span>
+        </div>
+      </div>
+
+      <table>
+        <tr>
+          <th>Status</th>
+          <th>Count</th>
+          <th>Approx. %</th>
+        </tr>
+        <tr>
+          <td>Same Tree</td>
+          <td>1,053</td>
+          <td>77%</td>
+        </tr>
+        <tr>
+          <td>Vacant</td>
+          <td>186</td>
+          <td>14%</td>
+        </tr>
+        <tr>
+          <td>New Tree</td>
+          <td>135</td>
+          <td>10%</td>
+        </tr>
+      </table>
+
+      <p class="note">
+        These results describe one district and one defined subgroup of street tree
+        sites. They should be interpreted as a pilot snapshot, not a citywide trend.
+      </p>
+    </section>
+
+    <section>
+      <h2>Loss Rates Among Common Original Taxa</h2>
+      <p>
+        The following taxa were among the most common original trees in the study
+        group. This table focuses on frequently occurring taxa and does not include
+        species represented by only a small number of sites.
+      </p>
+
+      <table>
+        <tr>
+          <th>Original Taxon</th>
+          <th>Total Sites</th>
+          <th>Lost</th>
+          <th>Loss Rate</th>
+        </tr>
+        <tr>
+          <td><em>Lagerstroemia indica</em> (crape myrtle)</td>
+          <td>428</td>
+          <td>45</td>
+          <td>10.5%</td>
+        </tr>
+        <tr>
+          <td><em>Pistacia chinensis</em> (Chinese pistache)</td>
+          <td>104</td>
+          <td>12</td>
+          <td>11.5%</td>
+        </tr>
+        <tr>
+          <td><em>Ginkgo biloba</em> (ginkgo)</td>
+          <td>81</td>
+          <td>15</td>
+          <td>18.5%</td>
+        </tr>
+        <tr>
+          <td><em>Acer rubrum</em> (red maple)</td>
+          <td>29</td>
+          <td>6</td>
+          <td>20.7%</td>
+        </tr>
+        <tr>
+          <td><em>Acer × freemanii</em> (Freeman maple)</td>
+          <td>33</td>
+          <td>9</td>
+          <td>27.3%</td>
+        </tr>
+        <tr>
+          <td><em>Acer palmatum</em> (Japanese maple)</td>
+          <td>29</td>
+          <td>12</td>
+          <td>41.4%</td>
+        </tr>
+        <tr>
+          <td><em>Pyrus calleryana</em> (Callery pear)</td>
+          <td>18</td>
+          <td>7</td>
+          <td>38.9%</td>
+        </tr>
+        <tr>
+          <td><em>Zelkova serrata</em> (Japanese zelkova)</td>
+          <td>18</td>
+          <td>6</td>
+          <td>33.3%</td>
+        </tr>
+        <tr>
+          <td><em>Liquidambar styraciflua</em> (sweetgum)</td>
+          <td>17</td>
+          <td>6</td>
+          <td>35.3%</td>
+        </tr>
+        <tr>
+          <td><em>Tristaniopsis laurina</em> (water gum)</td>
+          <td>23</td>
+          <td>8</td>
+          <td>34.8%</td>
+        </tr>
+      </table>
+
+      <p class="note">
+        Loss rate means the percentage of original trees that were no longer present
+        as the same tree during the 2025 field check.
+      </p>
+    </section>
+
+    <section>
+      <h2>Replacement Taxa</h2>
+      <p>
+        When original trees were replaced, the new trees reflected a mix of commonly
+        used street tree species and smaller ornamental choices. Crape myrtle was
+        the most frequently observed replacement taxon in this dataset.
+      </p>
+
+      <table>
+        <tr>
+          <th>Replacement Taxon</th>
+          <th>Count</th>
+        </tr>
+        <tr>
+          <td><em>Lagerstroemia indica</em> (crape myrtle)</td>
+          <td>26</td>
+        </tr>
+        <tr>
+          <td><em>Pistacia chinensis</em> (Chinese pistache)</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td><em>Zelkova serrata</em> (Japanese zelkova)</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><em>Prunus cerasifera</em> (purple-leaf plum)</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><em>Podocarpus macrophyllus</em> (yew pine)</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><em>Citrus</em> spp. (citrus)</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><em>Acer palmatum</em> (Japanese maple)</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><em>Platanus × acerifolia</em> (London plane tree)</td>
+          <td>3</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Interpretation</h2>
+      <p>
+        The results suggest that many small-diameter street trees recorded in 2020
+        were still present in 2025, but early tree turnover remains meaningful.
+        A vacant planting site is especially important because it represents delayed
+        or absent canopy recovery. A replacement tree may restart the canopy-growth
+        timeline, but it still indicates that the original planting did not persist.
+      </p>
+
+      <p>
+        Species patterns should be interpreted cautiously. Apparent differences in
+        loss rates may reflect species tolerance, nursery stock quality, planting
+        site size, irrigation, soil conditions, homeowner maintenance, exposure,
+        or neighborhood planting preferences. Still, these patterns help identify
+        practical questions for future monitoring and more detailed analysis.
+      </p>
+    </section>
+
+    <section>
+      <h2>Future Questions</h2>
+      <ul>
+        <li>How do early street tree survival and replacement rates vary across San José districts?</li>
+        <li>How strongly do planting space, irrigation access, and surrounding land use affect establishment?</li>
+        <li>Are certain species or size classes more reliable in constrained park strip environments?</li>
+        <li>How often do vacant planting sites remain vacant over multiple years?</li>
+        <li>How can QGIS and QField support efficient, repeatable urban forest monitoring at neighborhood scale?</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Oak & Apricot · Public-interest tree research for residents of the Santa Clara Valley
+  </footer>
+</body>
+</html>
