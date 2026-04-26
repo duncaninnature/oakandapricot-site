@@ -1,34 +1,95 @@
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  th {
+    background: var(--oak);
+    color: white;
+    text-align: left;
+    padding: 0.75rem;
+  }
+
+  td {
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tr:nth-child(even) td {
+    background: #f8f2e9;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .result-card {
+    background: #f8f2e9;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .result-card strong {
+    display: block;
+    font-size: 2rem;
+    color: var(--oak);
+    line-height: 1.1;
+  }
+
+  .result-card span {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .section-intro {
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+</style>
+
 <section>
   <h2>Status of Original Trees</h2>
-  <table>
-    <tr>
-      <th>Status</th>
-      <th>Count</th>
-      <th>Approx. %</th>
-    </tr>
-    <tr>
-      <td>Same Tree</td>
-      <td>1,053</td>
-      <td>77%</td>
-    </tr>
-    <tr>
-      <td>Vacant</td>
-      <td>186</td>
-      <td>14%</td>
-    </tr>
-    <tr>
-      <td>New Tree</td>
-      <td>135</td>
-      <td>10%</td>
-    </tr>
-  </table>
+
+  <div class="results-grid">
+    <div class="result-card">
+      <strong>77%</strong>
+      <span>Same Tree</span>
+      <p>1,053 sites</p>
+    </div>
+
+    <div class="result-card">
+      <strong>14%</strong>
+      <span>Vacant</span>
+      <p>186 sites</p>
+    </div>
+
+    <div class="result-card">
+      <strong>10%</strong>
+      <span>New Tree</span>
+      <p>135 sites</p>
+    </div>
+  </div>
 </section>
 
 <section>
   <h2>Loss Rates Among Common Original Taxa</h2>
-  <p>
-    The following taxa were among the most frequently observed original trees in the study group.
-    This list emphasizes common taxa and does not include every species represented by only a few sites.
+  <p class="section-intro">
+    The following taxa represent the most commonly observed original trees in the study group. 
+    This list emphasizes frequently occurring species and does not include taxa represented by only a small number of sites.
   </p>
 
   <table>
@@ -103,6 +164,7 @@
 
 <section>
   <h2>Replacement Taxa</h2>
+
   <table>
     <tr>
       <th>Replacement Taxon</th>
@@ -137,7 +199,7 @@
       <td>3</td>
     </tr>
     <tr>
-      <td><em>Platanus × acerifolia</em> (London plane tree)</td>
+      <td><em>Platanus × acerifolia</em> (London plane)</td>
       <td>3</td>
     </tr>
   </table>
