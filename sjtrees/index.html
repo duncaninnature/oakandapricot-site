@@ -16,7 +16,9 @@
       --border: #d8c8b6;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -93,14 +95,6 @@
       font-size: 0.95rem;
     }
 
-    .note {
-      color: var(--muted);
-      font-size: 0.95rem;
-      border-left: 4px solid var(--apricot);
-      padding-left: 1rem;
-      margin-top: 1rem;
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
@@ -132,6 +126,10 @@
       padding: 2rem 1rem;
       font-size: 0.9rem;
     }
+
+    em {
+      font-style: italic;
+    }
   </style>
 </head>
 
@@ -141,6 +139,7 @@
   </header>
 
   <main>
+
     <section>
       <h2>Overview</h2>
       <p>
@@ -167,16 +166,19 @@
     </section>
 
     <section>
-    
+      <h2>Overall Results</h2>
+
       <div class="stats">
         <div class="stat-card">
           <span class="stat-number">1,310</span>
           <span class="stat-label">Original Trees</span>
         </div>
+
         <div class="stat-card">
           <span class="stat-number">297</span>
           <span class="stat-label">Lost</span>
         </div>
+
         <div class="stat-card">
           <span class="stat-number">22.7%</span>
           <span class="stat-label">Loss Rate</span>
@@ -194,60 +196,70 @@
           <th>Number Lost</th>
           <th>% Loss</th>
         </tr>
+
         <tr>
           <td><em>Prunus cerasifera</em> (purple-leaf plum)</td>
           <td>29</td>
           <td>3</td>
           <td>10.3%</td>
         </tr>
+
         <tr>
           <td><em>Lagerstroemia indica</em> (crape myrtle)</td>
           <td>437</td>
           <td>48</td>
           <td>11.0%</td>
         </tr>
+
         <tr>
           <td><em>Pistacia chinensis</em> (Chinese pistache)</td>
           <td>112</td>
           <td>13</td>
           <td>11.6%</td>
         </tr>
+
         <tr>
           <td><em>Eriobotrya japonica</em> (loquat)</td>
           <td>20</td>
           <td>3</td>
           <td>15.0%</td>
         </tr>
+
         <tr>
           <td><em>Ginkgo biloba</em> (ginkgo)</td>
           <td>81</td>
           <td>15</td>
           <td>18.5%</td>
         </tr>
+
         <tr>
           <td><em>Acer rubrum</em> (red maple)</td>
           <td>32</td>
           <td>6</td>
           <td>18.8%</td>
         </tr>
+
         <tr>
           <td><em>Acer × freemanii</em> (Freeman maple)</td>
           <td>55</td>
           <td>12</td>
           <td>21.8%</td>
         </tr>
+
         <tr>
           <td><em>Magnolia grandiflora</em> (southern magnolia)</td>
           <td>23</td>
           <td>6</td>
           <td>26.1%</td>
         </tr>
+
         <tr>
           <td><em>Tristaniopsis laurina</em> (water gum)</td>
           <td>23</td>
           <td>8</td>
           <td>34.8%</td>
         </tr>
+
         <tr>
           <td><em>Acer palmatum</em> (Japanese maple)</td>
           <td>29</td>
@@ -266,16 +278,19 @@
           <th>Number of Replacements</th>
           <th>Number of Addresses</th>
         </tr>
+
         <tr>
           <td><em>Lagerstroemia indica</em> (crape myrtle)</td>
           <td>26</td>
           <td>23</td>
         </tr>
+
         <tr>
           <td><em>Pistacia chinensis</em> (Chinese pistache)</td>
           <td>8</td>
           <td>7</td>
         </tr>
+
         <tr>
           <td><em>Zelkova serrata</em> (Japanese zelkova)</td>
           <td>5</td>
@@ -286,12 +301,14 @@
 
     <section>
       <h2>Future Research Questions</h2>
+
       <ul>
         <li>How do these results compare to other areas of San José and to the city as a whole?</li>
         <li>What site, species, or management factors might explain why some trees perform substantially better or worse than others?</li>
         <li>How might resident tree replacement decisions influence long-term canopy outcomes and San José’s Community Forest Management goals?</li>
       </ul>
     </section>
+
   </main>
 
   <footer>
