@@ -8,12 +8,14 @@
   <style>
     :root {
       --oak: #355e3b;
+      --oak-dark: #28462d;
       --apricot: #d4945a;
       --cream: #f5efe6;
       --card: #fffdf8;
       --text: #24352b;
       --muted: #5f6f64;
       --border: #d8c8b6;
+      --soft: #f8f2e9;
     }
 
     * { box-sizing: border-box; }
@@ -27,25 +29,27 @@
     }
 
     header {
-      background: var(--oak);
+      background: linear-gradient(135deg, var(--oak), var(--oak-dark));
       color: white;
-      padding: 2.25rem 1.25rem;
+      padding: 2.5rem 1.25rem;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: 0.01em;
     }
 
     header p {
-      max-width: 760px;
-      margin: 0.75rem auto 0;
+      max-width: 780px;
+      margin: 0.9rem auto 0;
       color: #f7efe4;
+      font-size: 1.05rem;
     }
 
     main {
-      max-width: 1000px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 2rem 1.25rem 3rem;
     }
@@ -53,15 +57,17 @@
     section {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 1.5rem;
       margin-bottom: 1.25rem;
+      box-shadow: 0 8px 20px rgba(53, 94, 59, 0.06);
     }
 
     h2 {
       margin-top: 0;
       color: var(--oak);
-      font-size: 1.35rem;
+      font-size: 1.4rem;
+      line-height: 1.25;
     }
 
     h3 {
@@ -73,7 +79,7 @@
       color: var(--apricot);
       font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       font-size: 0.85rem;
       margin-bottom: 0.35rem;
     }
@@ -86,23 +92,39 @@
     }
 
     .stat-card {
-      background: #f8f2e9;
+      background: var(--soft);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 1rem;
       text-align: center;
     }
 
     .stat-number {
       display: block;
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       font-weight: bold;
       color: var(--oak);
+      line-height: 1.1;
     }
 
     .stat-label {
       color: var(--muted);
       font-size: 0.95rem;
+    }
+
+    .callout {
+      background: #fbf6ee;
+      border-left: 5px solid var(--apricot);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
     table {
@@ -124,10 +146,11 @@
     td {
       padding: 0.7rem 0.75rem;
       border-bottom: 1px solid var(--border);
+      vertical-align: top;
     }
 
     tr:nth-child(even) td {
-      background: #f8f2e9;
+      background: var(--soft);
     }
 
     .note {
@@ -144,6 +167,12 @@
     }
 
     em { font-style: italic; }
+
+    @media (max-width: 700px) {
+      section { padding: 1.15rem; }
+      table { font-size: 0.88rem; }
+      th, td { padding: 0.6rem; }
+    }
   </style>
 </head>
 
@@ -151,7 +180,7 @@
   <header>
     <h1>San José Street Tree Pilot Study</h1>
     <p>
-      A pilot look at young street tree survival, replacement choices, and vacant planting sites in San José Council District 10.
+      A pilot look at young street tree survival, replacement choices, and persistent vacant planting sites in San José Council District 10.
     </p>
   </header>
 
@@ -163,7 +192,7 @@
         This study was motivated by curiosity about the role that San José residents play in urban forest stewardship. I was particularly interested in public right-of-way trees in park strips—the area between sidewalk and street—which adjacent property owners are responsible for maintaining.
       </p>
       <p>
-        The analysis is organized into two groups: recently planted young trees from the 2020 inventory, and trees recorded as dead in the 2020 inventory. Together, these groups offer a preliminary look at both tree establishment and what happens after street tree loss.
+        The analysis is organized into two groups: recently planted young trees from the 2020 inventory, and a separate group of dead, stump, and vacant planting-site records from the 2020 inventory. Together, these groups offer a preliminary look at both tree establishment and what happens after street tree loss or vacancy.
       </p>
     </section>
 
@@ -240,7 +269,7 @@
     </section>
 
     <section>
-      <h2>Observed Replacement Trees</h2>
+      <h2>Observed Replacement Trees After Young Tree Loss</h2>
 
       <p>
         Where original young trees were absent, replacement plantings were recorded when present and identifiable from the public right-of-way. <em>Lagerstroemia indica</em> (crape myrtle) was by far the most common observed replacement.
@@ -285,57 +314,151 @@
 
     <section>
       <div class="section-label">Group 2</div>
-      <h2>Dead Tree Sites in 2020: What Changed by 2025?</h2>
+      <h2>Dead, Stump, and Vacant Street Tree Sites: 2020 to 2025</h2>
 
       <p>
-        A second group included sites where the 2020 inventory listed a dead tree. These sites were revisited in 2025 to see whether they had been replanted or remained vacant.
+        A second analysis focused on 2020 inventory records that reflected tree loss or absence rather than recently planted young trees. After excluding genus-only former-tree records, the cleaned group included 353 records: 158 with an identifiable former species, 185 records already listed as vacant, and 10 records listed as stumps.
       </p>
 
       <div class="stats">
         <div class="stat-card">
-          <span class="stat-number">359</span>
-          <span class="stat-label">Dead Tree Sites in 2020</span>
+          <span class="stat-number">353</span>
+          <span class="stat-label">Cleaned Records</span>
         </div>
 
         <div class="stat-card">
-          <span class="stat-number">131</span>
-          <span class="stat-label">Observed Replacements in 2025</span>
+          <span class="stat-number">127</span>
+          <span class="stat-label">New Trees in 2025</span>
         </div>
 
         <div class="stat-card">
-          <span class="stat-number">228</span>
-          <span class="stat-label">Still Vacant in 2025</span>
+          <span class="stat-number">226</span>
+          <span class="stat-label">Vacant in 2025</span>
         </div>
 
         <div class="stat-card">
-          <span class="stat-number">63.5%</span>
+          <span class="stat-number">64.0%</span>
           <span class="stat-label">Still Vacant</span>
         </div>
       </div>
 
+      <div class="callout">
+        <strong>Important distinction:</strong> not every record in this group represents a known dead tree species. Many 2020 records were already listed as vacant, which means they are better interpreted as vacant planting-site records rather than identifiable tree mortalities. This makes the group useful for understanding replacement and vacancy persistence, but not as a species-level mortality dataset by itself.
+      </div>
+    </section>
+
+    <section>
+      <h2>Dead/Vacant Site Outcomes by 2020 Record Type</h2>
+
       <p>
-        Nearly two-thirds of sites recorded as dead in 2020 remained vacant in 2025. This suggests that tree loss can create long-lasting gaps in the street tree canopy when replacement does not occur quickly.
+        The clearest pattern is that records with a known former species were much more likely to have a replacement tree by 2025 than records already listed as vacant in 2020. In other words, once a site appears as simply vacant in the inventory, it may be less likely to be replanted within the following several years.
+      </p>
+
+      <table>
+        <tr>
+          <th>2020 Record Type</th>
+          <th>Total Records</th>
+          <th>New Tree in 2025</th>
+          <th>Vacant in 2025</th>
+          <th>Replacement Rate</th>
+        </tr>
+
+        <tr><td>Known former species</td><td>158</td><td>83</td><td>75</td><td>52.5%</td></tr>
+        <tr><td>Vacant site in 2020 dataset</td><td>185</td><td>39</td><td>146</td><td>21.1%</td></tr>
+        <tr><td>Stump in 2020 dataset</td><td>10</td><td>5</td><td>5</td><td>50.0%</td></tr>
+      </table>
+
+      <p class="note">
+        Percentages are descriptive and should be read as pilot-study findings. They are useful for generating questions about replacement patterns, but they do not explain why any individual planting site remained vacant.
       </p>
     </section>
 
     <section>
-      <h2>Most Common Replacement Trees at 2020 Dead Tree Sites</h2>
+      <h2>Former Species Outcomes Among Known Dead Trees</h2>
+
+      <p>
+        Among records where the former tree species was identifiable, replacement outcomes varied by taxon. Some patterns likely reflect site management context as much as species biology. For example, the <em>Fraxinus angustifolia</em> “Raywood” records were concentrated at one frontage where multiple replacement <em>Pistacia chinensis</em> were observed, so that pattern should not be generalized as a citywide replacement preference.
+      </p>
 
       <table>
         <tr>
-          <th>Species</th>
+          <th>Former Taxon</th>
+          <th>Former Records</th>
+          <th>Replaced in 2025</th>
+          <th>Vacant in 2025</th>
+          <th>Replacement Rate</th>
+        </tr>
+
+        <tr><td><em>Prunus cerasifera</em> (purple-leaf plum)</td><td>17</td><td>5</td><td>12</td><td>29.4%</td></tr>
+        <tr><td><em>Quercus ilex</em> (holly oak)</td><td>15</td><td>9</td><td>6</td><td>60.0%</td></tr>
+        <tr><td><em>Fraxinus angustifolia</em> 'Raywood' (Raywood ash)</td><td>13</td><td>13</td><td>0</td><td>100.0%</td></tr>
+        <tr><td><em>Gleditsia triacanthos</em> (honey locust)</td><td>13</td><td>10</td><td>3</td><td>76.9%</td></tr>
+        <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>9</td><td>4</td><td>5</td><td>44.4%</td></tr>
+        <tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>8</td><td>4</td><td>4</td><td>50.0%</td></tr>
+        <tr><td><em>Ginkgo biloba</em> (ginkgo)</td><td>5</td><td>3</td><td>2</td><td>60.0%</td></tr>
+        <tr><td><em>Pyrus calleryana</em> (Callery pear)</td><td>5</td><td>2</td><td>3</td><td>40.0%</td></tr>
+      </table>
+
+      <p class="note">
+        Table shown for former taxa represented by at least five cleaned records. Genus-only former-tree records were excluded from species-level summaries.
+      </p>
+    </section>
+
+    <section>
+      <h2>Replacement Trees at Dead, Stump, and Vacant Sites</h2>
+
+      <p>
+        Across the full dead/vacant group, <em>Lagerstroemia indica</em> was again the most common replacement taxon. This mirrors the young-tree replacement analysis and suggests that crape myrtle is not only common in the existing District 10 street tree palette, but also frequently selected when street tree vacancies are filled.
+      </p>
+
+      <table>
+        <tr>
+          <th>Replacement Taxon</th>
           <th>Sites (n)</th>
           <th>Trees (n)</th>
         </tr>
 
         <tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>16</td><td>19</td></tr>
-        <tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>7</td><td>7</td></tr>
+        <tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>5</td><td>5</td></tr>
         <tr><td><em>Cercis canadensis</em> (eastern redbud)</td><td>5</td><td>5</td></tr>
-        <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>4</td><td>14</td></tr>
+        <tr><td><em>Jacaranda mimosifolia</em> (jacaranda)</td><td>5</td><td>5</td></tr>
+        <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>4</td><td>15</td></tr>
+        <tr><td><em>Ulmus</em>*</td><td>4</td><td>5</td></tr>
+        <tr><td><em>Arbutus</em> 'Marina' (Marina strawberry tree)</td><td>3</td><td>3</td></tr>
+        <tr><td><em>Magnolia grandiflora</em> (southern magnolia)</td><td>3</td><td>3</td></tr>
+        <tr><td><em>Prunus serrulata</em> (Japanese flowering cherry)</td><td>3</td><td>3</td></tr>
       </table>
 
       <p class="note">
-        Trees (n) may exceed Sites (n) where multiple replacement trees occurred at the same address or managed frontage.
+        * Identification could only be made confidently to genus level from the public right-of-way.
+      </p>
+
+      <p class="note">
+        Trees (n) may exceed Sites (n) where multiple replacement trees occurred at the same address or managed frontage. The <em>Pistacia chinensis</em> count is strongly influenced by one multi-tree frontage.
+      </p>
+    </section>
+
+    <section>
+      <h2>What the Two Groups Suggest Together</h2>
+
+      <div class="two-column">
+        <div>
+          <h3>Young-tree establishment</h3>
+          <p>
+            Most small 2020 trees were still present in 2025, but outcomes varied by species and site context. The data are strongest as a pilot snapshot of establishment outcomes, not as proof that one species is universally superior to another.
+          </p>
+        </div>
+
+        <div>
+          <h3>Vacancy persistence</h3>
+          <p>
+            The dead/vacant analysis points to a different problem: once a planting site becomes vacant, it may remain vacant for years. This can create long-lasting canopy gaps even when individual young-tree survival is relatively high.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Together, the findings suggest that street tree canopy outcomes depend on both establishment success and the speed or likelihood of replacement after loss. Future work could compare these patterns across other San José districts, examine socioeconomic and management context, and evaluate whether replacement choices are narrowing or diversifying the street tree palette over time.
       </p>
     </section>
 
@@ -346,6 +469,7 @@
         <li>How do these patterns compare to other areas of San José and to the city as a whole?</li>
         <li>What site, species, or management factors explain why some young trees persist while others are lost?</li>
         <li>How often do vacant street tree sites remain unplanted over longer time periods?</li>
+        <li>Are some sites repeatedly replanted while other vacancies disappear from active replacement attention?</li>
         <li>How do resident, HOA, and institutional replacement decisions influence long-term canopy outcomes?</li>
       </ul>
     </section>
