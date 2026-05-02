@@ -16,9 +16,7 @@
       --border: #d8c8b6;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -31,7 +29,7 @@
     header {
       background: var(--oak);
       color: white;
-      padding: 2rem 1.25rem;
+      padding: 2.25rem 1.25rem;
       text-align: center;
     }
 
@@ -40,8 +38,14 @@
       font-size: 2rem;
     }
 
+    header p {
+      max-width: 760px;
+      margin: 0.75rem auto 0;
+      color: #f7efe4;
+    }
+
     main {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 2rem 1.25rem 3rem;
     }
@@ -60,12 +64,18 @@
       font-size: 1.35rem;
     }
 
-    ul {
-      padding-left: 1.25rem;
+    h3 {
+      color: var(--oak);
+      margin-bottom: 0.35rem;
     }
 
-    li {
-      margin-bottom: 0.45rem;
+    .section-label {
+      color: var(--apricot);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.85rem;
+      margin-bottom: 0.35rem;
     }
 
     .stats {
@@ -120,6 +130,12 @@
       background: #f8f2e9;
     }
 
+    .note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
     footer {
       text-align: center;
       color: var(--muted);
@@ -127,15 +143,16 @@
       font-size: 0.9rem;
     }
 
-    em {
-      font-style: italic;
-    }
+    em { font-style: italic; }
   </style>
 </head>
 
 <body>
   <header>
     <h1>San José Street Tree Pilot Study</h1>
+    <p>
+      A pilot look at young street tree survival, replacement choices, and vacant planting sites in San José Council District 10.
+    </p>
   </header>
 
   <main>
@@ -143,23 +160,19 @@
     <section>
       <h2>Overview</h2>
       <p>
-        This study was motivated by curiosity about the role that San José residents play in urban forest stewardship. I was particularly interested in public right-of-way (ROW) trees in park strips—the area between sidewalk and street—which adjacent property owners are responsible for maintaining.
+        This study was motivated by curiosity about the role that San José residents play in urban forest stewardship. I was particularly interested in public right-of-way trees in park strips—the area between sidewalk and street—which adjacent property owners are responsible for maintaining.
+      </p>
+      <p>
+        The analysis is organized into two groups: recently planted young trees from the 2020 inventory, and trees recorded as dead in the 2020 inventory. Together, these groups offer a preliminary look at both tree establishment and what happens after street tree loss.
       </p>
     </section>
 
     <section>
-      <h2>Sampling</h2>
-      <ul>
-        <li>The study was limited to San José Council District 10.</li>
-        <li>The target population was trees estimated to have been planted roughly 5–10 years prior to 2025.</li>
-        <li>I visited every tree in San José’s public GIS street tree inventory that had a trunk diameter of less than 2 inches in 2020 and was planted in a park strip.</li>
-        <li>At each site, I recorded whether the original tree was still present, whether a new tree had replaced it, or whether the planting site was vacant.</li>
-        <li>For new trees, I recorded the replacement species.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Overall Results</h2>
+      <div class="section-label">Group 1</div>
+      <h2>Young Street Trees: Five-Year Outcomes</h2>
+      <p>
+        This group includes public street trees in District 10 that were small in 2020 and likely represented relatively recent plantings. In 2025, each site was checked to determine whether the original tree was still present, whether a new tree had replaced it, or whether the site was vacant.
+      </p>
 
       <div class="stats">
         <div class="stat-card">
@@ -168,195 +181,172 @@
         </div>
 
         <div class="stat-card">
-          <span class="stat-number">297</span>
-          <span class="stat-label">Lost or Replaced</span>
+          <span class="stat-number">1,013</span>
+          <span class="stat-label">Still Present</span>
         </div>
 
         <div class="stat-card">
           <span class="stat-number">77.3%</span>
-          <span class="stat-label">Survival Rate</span>
+          <span class="stat-label">Overall Survival</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-number">297</span>
+          <span class="stat-label">Lost or Replaced</span>
         </div>
       </div>
     </section>
 
-<section>
-  <h2>Site-Adjusted Survival Rates Among Common Species</h2>
+    <section>
+      <h2>Site-Adjusted Survival Rates Among Common Species</h2>
+      <p>
+        Because some species were often planted in groups at the same address, survival rates below are site-adjusted. Same-species plantings at a single address were grouped as one site, and survival was averaged across sites.
+      </p>
 
-  <table>
-    <tr>
-      <th>Species</th>
-      <th>Sites (n)</th>
-      <th>Survival Rate*</th>
-    </tr>
+      <table>
+        <tr>
+          <th>Species</th>
+          <th>Sites (n)</th>
+          <th>Trees (n)</th>
+          <th>Survival Rate*</th>
+        </tr>
 
-    <tr>
-      <td><em>Ulmus propinqua</em> (likely Emerald Sunshine elm)**</td>
-      <td>12</td>
-      <td>100.0%</td>
-    </tr>
+        <tr><td><em>Ulmus propinqua</em> (Sunshine elm)**</td><td>12</td><td>12</td><td>100.0%</td></tr>
+        <tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>287</td><td>437</td><td>88.3%</td></tr>
+        <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>102</td><td>112</td><td>87.7%</td></tr>
+        <tr><td><em>Eriobotrya japonica</em> (loquat)</td><td>18</td><td>20</td><td>87.0%</td></tr>
+        <tr><td><em>Prunus cerasifera</em> (purple-leaf plum)</td><td>23</td><td>29</td><td>87.0%</td></tr>
+        <tr><td><em>Ginkgo biloba</em> (ginkgo)</td><td>69</td><td>81</td><td>83.8%</td></tr>
+        <tr><td><em>Laurus nobilis</em> group (bay laurel)</td><td>12</td><td>12</td><td>83.3%</td></tr>
+        <tr><td><em>Acer rubrum</em> (red maple)</td><td>25</td><td>32</td><td>82.7%</td></tr>
+        <tr><td><em>Quercus shumardii</em> (Shumard oak)</td><td>10</td><td>14</td><td>75.0%</td></tr>
+        <tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>41</td><td>54</td><td>73.6%</td></tr>
+        <tr><td><em>Magnolia grandiflora</em> (southern magnolia)</td><td>20</td><td>23</td><td>70.0%</td></tr>
+        <tr><td><em>Zelkova serrata</em> (Japanese zelkova)</td><td>13</td><td>18</td><td>69.2%</td></tr>
+        <tr><td><em>Pyrus calleryana</em> (Callery pear)</td><td>16</td><td>19</td><td>65.6%</td></tr>
+        <tr><td><em>Liquidambar styraciflua</em> (sweetgum)</td><td>11</td><td>17</td><td>63.6%</td></tr>
+        <tr><td><em>Tristaniopsis laurina</em> (water gum)</td><td>20</td><td>23</td><td>62.5%</td></tr>
+        <tr><td><em>Acer palmatum</em> (Japanese maple)</td><td>23</td><td>29</td><td>60.9%</td></tr>
+        <tr><td><em>Prunus serrulata</em> (Japanese flowering cherry)</td><td>10</td><td>11</td><td>40.0%</td></tr>
+      </table>
 
-    <tr>
-      <td><em>Lagerstroemia indica</em> (crape myrtle)</td>
-      <td>287</td>
-      <td>88.3%</td>
-    </tr>
+      <p class="note">
+        * Only species represented by at least 10 sites are shown.
+      </p>
 
-    <tr>
-      <td><em>Pistacia chinensis</em> (Chinese pistache)</td>
-      <td>102</td>
-      <td>87.7%</td>
-    </tr>
+      <p class="note">
+        ** Ten of twelve observed <em>Ulmus propinqua</em> sites occurred along one residential street segment of approximately 810 feet; two additional sites were located elsewhere in the district.
+      </p>
+    </section>
 
-    <tr>
-      <td><em>Eriobotrya japonica</em> (loquat)</td>
-      <td>18</td>
-      <td>87.0%</td>
-    </tr>
+    <section>
+      <h2>Observed Replacement Trees</h2>
 
-    <tr>
-      <td><em>Prunus cerasifera</em> (purple-leaf plum)</td>
-      <td>23</td>
-      <td>87.0%</td>
-    </tr>
+      <p>
+        Where original young trees were absent, replacement plantings were recorded when present and identifiable from the public right-of-way. <em>Lagerstroemia indica</em> (crape myrtle) was by far the most common observed replacement.
+      </p>
 
-    <tr>
-      <td><em>Ginkgo biloba</em> (ginkgo)</td>
-      <td>69</td>
-      <td>83.8%</td>
-    </tr>
+      <table>
+        <tr>
+          <th>Species</th>
+          <th>Sites (n)</th>
+          <th>Trees (n)</th>
+        </tr>
 
-    <tr>
-      <td><em>Laurus nobilis</em> (bay laurel)</td>
-      <td>12</td>
-      <td>83.3%</td>
-    </tr>
+        <tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>23</td><td>26</td></tr>
+        <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>6</td><td>6</td></tr>
+        <tr><td><em>Zelkova serrata</em> (Japanese zelkova)</td><td>5</td><td>5</td></tr>
+        <tr><td><em>Prunus cerasifera</em> (purple-leaf plum)</td><td>4</td><td>4</td></tr>
+        <tr><td><em>Acer palmatum</em> (Japanese maple)</td><td>3</td><td>3</td></tr>
+        <tr><td><em>Citrus</em>*</td><td>3</td><td>4</td></tr>
+        <tr><td><em>Laurus nobilis</em> group (bay laurel)</td><td>3</td><td>4</td></tr>
+        <tr><td><em>Acer grandidentatum</em> (bigtooth maple)</td><td>2</td><td>4</td></tr>
+        <tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>2</td><td>2</td></tr>
+        <tr><td><em>Eriobotrya japonica</em> (loquat)</td><td>2</td><td>2</td></tr>
+        <tr><td><em>Fraxinus angustifolia</em> (Raywood ash type)</td><td>2</td><td>2</td></tr>
+        <tr><td><em>Jacaranda mimosifolia</em> (jacaranda)</td><td>2</td><td>2</td></tr>
+        <tr><td><em>Persea americana</em> (avocado)</td><td>2</td><td>2</td></tr>
+        <tr><td><em>Pittosporum tenuifolium</em></td><td>2</td><td>2</td></tr>
+        <tr><td><em>Platanus × acerifolia</em> (London plane)</td><td>2</td><td>3</td></tr>
+        <tr><td><em>Prunus persica</em> (peach)</td><td>2</td><td>2</td></tr>
+        <tr><td><em>Quercus shumardii</em> (Shumard oak)</td><td>2</td><td>3</td></tr>
+        <tr><td><em>Tilia</em>*</td><td>2</td><td>2</td></tr>
+        <tr><td><em>Ulmus parvifolia</em> (Chinese elm)</td><td>2</td><td>2</td></tr>
+      </table>
 
-    <tr>
-      <td><em>Acer rubrum</em> (red maple)</td>
-      <td>25</td>
-      <td>82.7%</td>
-    </tr>
+      <p class="note">
+        * Identification could only be made confidently to genus level from the public right-of-way.
+      </p>
 
-    <tr>
-      <td><em>Quercus shumardii</em> (Shumard oak)</td>
-      <td>10</td>
-      <td>75.0%</td>
-    </tr>
+      <p class="note">
+        Numerous additional replacement taxa were observed at single sites only and are not shown here. These one-site records illustrate the wide variety of replacement choices made across the study area.
+      </p>
+    </section>
 
-    <tr>
-      <td><em>Acer × freemanii</em> (Freeman maple)</td>
-      <td>41</td>
-      <td>73.6%</td>
-    </tr>
+    <section>
+      <div class="section-label">Group 2</div>
+      <h2>Dead Tree Sites in 2020: What Changed by 2025?</h2>
 
-    <tr>
-      <td><em>Magnolia grandiflora</em> (southern magnolia)</td>
-      <td>20</td>
-      <td>70.0%</td>
-    </tr>
+      <p>
+        A second group included sites where the 2020 inventory listed a dead tree. These sites were revisited in 2025 to see whether they had been replanted or remained vacant.
+      </p>
 
-    <tr>
-      <td><em>Zelkova serrata</em> (Japanese zelkova)</td>
-      <td>13</td>
-      <td>69.2%</td>
-    </tr>
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-number">359</span>
+          <span class="stat-label">Dead Tree Sites in 2020</span>
+        </div>
 
-    <tr>
-      <td><em>Pyrus calleryana</em> (Callery pear)</td>
-      <td>16</td>
-      <td>65.6%</td>
-    </tr>
+        <div class="stat-card">
+          <span class="stat-number">131</span>
+          <span class="stat-label">Observed Replacements in 2025</span>
+        </div>
 
-    <tr>
-      <td><em>Liquidambar styraciflua</em> (sweetgum)</td>
-      <td>11</td>
-      <td>63.6%</td>
-    </tr>
+        <div class="stat-card">
+          <span class="stat-number">228</span>
+          <span class="stat-label">Still Vacant in 2025</span>
+        </div>
 
-    <tr>
-      <td><em>Tristaniopsis laurina</em> (water gum)</td>
-      <td>20</td>
-      <td>62.5%</td>
-    </tr>
+        <div class="stat-card">
+          <span class="stat-number">63.5%</span>
+          <span class="stat-label">Still Vacant</span>
+        </div>
+      </div>
 
-    <tr>
-      <td><em>Acer palmatum</em> (Japanese maple)</td>
-      <td>23</td>
-      <td>60.9%</td>
-    </tr>
+      <p>
+        Nearly two-thirds of sites recorded as dead in 2020 remained vacant in 2025. This suggests that tree loss can create long-lasting gaps in the street tree canopy when replacement does not occur quickly.
+      </p>
+    </section>
 
-    <tr>
-      <td><em>Prunus serrulata</em> (Japanese flowering cherry)</td>
-      <td>10</td>
-      <td>40.0%</td>
-    </tr>
-  </table>
+    <section>
+      <h2>Most Common Replacement Trees at 2020 Dead Tree Sites</h2>
 
-  <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.85rem;">
-    * Survival rate is site-adjusted: same-species plantings at a single address were grouped as one site, and survival was averaged across sites. Only species represented by at least 10 sites are shown.
-  </p>
+      <table>
+        <tr>
+          <th>Species</th>
+          <th>Sites (n)</th>
+          <th>Trees (n)</th>
+        </tr>
 
-  <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.35rem;">
-    ** Ten of twelve observed <em>Ulmus propinqua</em> sites occurred along one residential street segment of approximately 810 feet; two additional sites were located elsewhere in the district.
-  </p>
-</section>
+        <tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>16</td><td>19</td></tr>
+        <tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>7</td><td>7</td></tr>
+        <tr><td><em>Cercis canadensis</em> (eastern redbud)</td><td>5</td><td>5</td></tr>
+        <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>4</td><td>14</td></tr>
+      </table>
 
-<section>
-  <h2>Observed Replacement Trees</h2>
+      <p class="note">
+        Trees (n) may exceed Sites (n) where multiple replacement trees occurred at the same address or managed frontage.
+      </p>
+    </section>
 
-  <p>
-    Where original inventory trees were absent, replacement plantings were recorded when present and identifiable from the public right-of-way. 
-    Results are summarized by <strong>Sites (n)</strong>, representing the number of unique addresses where a taxon was observed.
-  </p>
-
-  <p>
-    Replacement plantings were diverse, ranging from compact ornamentals to canopy-oriented street trees and edible species. 
-    <em>Lagerstroemia indica</em> (crape myrtle) was by far the most commonly observed replacement.
-  </p>
-
-  <table>
-    <tr>
-      <th>Species</th>
-      <th>Sites (n)</th>
-    </tr>
-
-    <tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>23</td></tr>
-    <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>6</td></tr>
-    <tr><td><em>Zelkova serrata</em> (Japanese zelkova)</td><td>5</td></tr>
-    <tr><td><em>Prunus cerasifera</em> (purple-leaf plum)</td><td>4</td></tr>
-    <tr><td><em>Acer palmatum</em> (Japanese maple)</td><td>3</td></tr>
-    <tr><td><em>Citrus</em>*</td><td>3</td></tr>
-    <tr><td><em>Laurus nobilis</em> group (bay laurel)</td><td>3</td></tr>
-    <tr><td><em>Acer grandidentatum</em> (bigtooth maple)</td><td>2</td></tr>
-    <tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>2</td></tr>
-    <tr><td><em>Eriobotrya japonica</em> (loquat)</td><td>2</td></tr>
-    <tr><td><em>Fraxinus angustifolia</em> (Raywood ash type)</td><td>2</td></tr>
-    <tr><td><em>Jacaranda mimosifolia</em> (jacaranda)</td><td>2</td></tr>
-    <tr><td><em>Persea americana</em> (avocado)</td><td>2</td></tr>
-    <tr><td><em>Pittosporum tenuifolium</em></td><td>2</td></tr>
-    <tr><td><em>Platanus × acerifolia</em> (London plane)</td><td>2</td></tr>
-    <tr><td><em>Prunus persica</em> (peach)</td><td>2</td></tr>
-    <tr><td><em>Quercus shumardii</em> (Shumard oak)</td><td>2</td></tr>
-    <tr><td><em>Tilia</em>*</td><td>2</td></tr>
-    <tr><td><em>Ulmus parvifolia</em> (Chinese elm)</td><td>2</td></tr>
-  </table>
-
-  <p style="font-size: 0.95em; color: #555; margin-top: 0.75rem;">
-    * Identification could only be made confidently to genus level from the public right-of-way.
-  </p>
-
-  <p style="font-size: 0.95em; color: #555;">
-    Numerous additional taxa were observed at only one site each and are omitted here for readability.
-  </p>
-</section>
-    
     <section>
       <h2>Future Research Questions</h2>
 
       <ul>
-        <li>How do these results compare to other areas of San José and to the city as a whole?</li>
-        <li>What site, species, or management factors might explain why some trees perform substantially better or worse than others?</li>
-        <li>How might resident tree replacement decisions influence long-term canopy outcomes and San José’s Community Forest Management goals?</li>
+        <li>How do these patterns compare to other areas of San José and to the city as a whole?</li>
+        <li>What site, species, or management factors explain why some young trees persist while others are lost?</li>
+        <li>How often do vacant street tree sites remain unplanted over longer time periods?</li>
+        <li>How do resident, HOA, and institutional replacement decisions influence long-term canopy outcomes?</li>
       </ul>
     </section>
 
