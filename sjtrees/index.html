@@ -1,483 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>San José Street Tree Pilot Study | Oak & Apricot</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>San José Street Tree Pilot Study | Oak & Apricot</title>
 
-  <style>
-    :root {
-      --oak: #355e3b;
-      --oak-dark: #28462d;
-      --apricot: #d4945a;
-      --cream: #f5efe6;
-      --card: #fffdf8;
-      --text: #24352b;
-      --muted: #5f6f64;
-      --border: #d8c8b6;
-      --soft: #f8f2e9;
-    }
+<style>
+:root{
+--oak:#355e3b;
+--oak-dark:#28462d;
+--apricot:#d4945a;
+--cream:#f5efe6;
+--card:#fffdf8;
+--text:#24352b;
+--muted:#5f6f64;
+--border:#d8c8b6;
+--soft:#f8f2e9;
+}
 
-    * { box-sizing: border-box; }
+*{box-sizing:border-box;}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.6;
-    }
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:var(--cream);
+color:var(--text);
+line-height:1.6;
+}
 
-    header {
-      background: linear-gradient(135deg, var(--oak), var(--oak-dark));
-      color: white;
-      padding: 2.5rem 1.25rem;
-      text-align: center;
-    }
+header{
+background:linear-gradient(135deg,var(--oak),var(--oak-dark));
+color:white;
+padding:2.5rem 1.25rem;
+text-align:center;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 3rem);
-      letter-spacing: 0.01em;
-    }
+header h1{
+margin:0;
+font-size:clamp(2rem,5vw,3rem);
+}
 
-    header p {
-      max-width: 780px;
-      margin: 0.9rem auto 0;
-      color: #f7efe4;
-      font-size: 1.05rem;
-    }
+header p{
+max-width:780px;
+margin:0.9rem auto 0;
+color:#f7efe4;
+font-size:1.05rem;
+}
 
-    main {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem 3rem;
-    }
+main{
+max-width:1040px;
+margin:0 auto;
+padding:2rem 1.25rem 3rem;
+}
 
-    section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 8px 20px rgba(53, 94, 59, 0.06);
-    }
+section{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:16px;
+padding:1.5rem;
+margin-bottom:1.25rem;
+box-shadow:0 8px 20px rgba(53,94,59,.06);
+}
 
-    h2 {
-      margin-top: 0;
-      color: var(--oak);
-      font-size: 1.4rem;
-      line-height: 1.25;
-    }
+h2{
+margin-top:0;
+color:var(--oak);
+font-size:1.4rem;
+line-height:1.25;
+}
 
-    h3 {
-      color: var(--oak);
-      margin-bottom: 0.35rem;
-    }
+h3{
+color:var(--oak);
+margin-bottom:.35rem;
+}
 
-    .section-label {
-      color: var(--apricot);
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-size: 0.85rem;
-      margin-bottom: 0.35rem;
-    }
+.section-label{
+color:var(--apricot);
+font-weight:bold;
+text-transform:uppercase;
+letter-spacing:.05em;
+font-size:.85rem;
+margin-bottom:.35rem;
+}
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:1rem;
+margin-top:1rem;
+}
 
-    .stat-card {
-      background: var(--soft);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1rem;
-      text-align: center;
-    }
+.stat-card{
+background:var(--soft);
+border:1px solid var(--border);
+border-radius:14px;
+padding:1rem;
+text-align:center;
+}
 
-    .stat-number {
-      display: block;
-      font-size: 1.85rem;
-      font-weight: bold;
-      color: var(--oak);
-      line-height: 1.1;
-    }
+.stat-number{
+display:block;
+font-size:1.85rem;
+font-weight:bold;
+color:var(--oak);
+line-height:1.1;
+}
 
-    .stat-label {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+.stat-label{
+color:var(--muted);
+font-size:.95rem;
+}
 
-    .callout {
-      background: #fbf6ee;
-      border-left: 5px solid var(--apricot);
-      border-radius: 12px;
-      padding: 1rem 1.1rem;
-      margin-top: 1rem;
-    }
+.callout{
+background:#fbf6ee;
+border-left:5px solid var(--apricot);
+border-radius:12px;
+padding:1rem 1.1rem;
+margin-top:1rem;
+}
 
-    .two-column {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+.two-column{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:1rem;
+margin-top:1rem;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      border-radius: 12px;
-      overflow: hidden;
-    }
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:1rem;
+font-size:.95rem;
+border-radius:12px;
+overflow:hidden;
+}
 
-    th {
-      background: var(--oak);
-      color: white;
-      text-align: left;
-      padding: 0.75rem;
-    }
+th{
+background:var(--oak);
+color:white;
+text-align:left;
+padding:.75rem;
+}
 
-    td {
-      padding: 0.7rem 0.75rem;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
+td{
+padding:.7rem .75rem;
+border-bottom:1px solid var(--border);
+vertical-align:top;
+}
 
-    tr:nth-child(even) td {
-      background: var(--soft);
-    }
+tr:nth-child(even) td{
+background:var(--soft);
+}
 
-    .note {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-top: 0.75rem;
-    }
+.note{
+font-size:.9rem;
+color:var(--muted);
+margin-top:.75rem;
+}
 
-    footer {
-      text-align: center;
-      color: var(--muted);
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-    }
+footer{
+text-align:center;
+color:var(--muted);
+padding:2rem 1rem;
+font-size:.9rem;
+}
 
-    em { font-style: italic; }
+em{font-style:italic;}
 
-    @media (max-width: 700px) {
-      section { padding: 1.15rem; }
-      table { font-size: 0.88rem; }
-      th, td { padding: 0.6rem; }
-    }
-  </style>
+@media (max-width:700px){
+section{padding:1.15rem;}
+table{font-size:.88rem;}
+th,td{padding:.6rem;}
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <h1>San José Street Tree Pilot Study</h1>
-    <p>
-      A pilot look at young street tree survival, replacement choices, and persistent vacant planting sites in San José Council District 10.
-    </p>
-  </header>
 
-  <main>
+<header>
+<h1>San José Street Tree Pilot Study</h1>
+<p>
+A pilot look at young street tree survival, replacement choices, and persistent vacant planting sites in San José Council District 10.
+</p>
+</header>
 
-    <section>
-      <h2>Overview</h2>
-      <p>
-        This study was motivated by curiosity about the role that San José residents play in urban forest stewardship. I was particularly interested in public right-of-way trees in park strips—the area between sidewalk and street—which adjacent property owners are responsible for maintaining.
-      </p>
-      <p>
-        The analysis is organized into two groups: recently planted young trees from the 2020 inventory, and a separate group of dead, stump, and vacant planting-site records from the 2020 inventory. Together, these groups offer a preliminary look at both tree establishment and what happens after street tree loss or vacancy.
-      </p>
-    </section>
+<main>
 
-    <section>
-      <div class="section-label">Group 1</div>
-      <h2>Young Street Trees: Five-Year Outcomes</h2>
-      <p>
-        This group includes public street trees in District 10 that were small in 2020 and likely represented relatively recent plantings. In 2025, each site was checked to determine whether the original tree was still present, whether a new tree had replaced it, or whether the site was vacant.
-      </p>
-
-      <div class="stats">
-        <div class="stat-card">
-          <span class="stat-number">1,310</span>
-          <span class="stat-label">Original Trees</span>
-        </div>
-
-        <div class="stat-card">
-          <span class="stat-number">1,013</span>
-          <span class="stat-label">Still Present</span>
-        </div>
-
-        <div class="stat-card">
-          <span class="stat-number">77.3%</span>
-          <span class="stat-label">Overall Survival</span>
-        </div>
-    </section>
-
-    <section>
-      <h2>Site-Adjusted Survival Rates Among Common Species</h2>
-      <p>
-        Because some species were often planted in groups at the same address, survival rates below are site-adjusted. Same-species plantings at a single address were grouped as one site, and survival was averaged across sites.
-      </p>
-
-      <table>
-        <tr>
-          <th>Species</th>
-          <th>Sites (n)</th>
-          <th>Trees (n)</th>
-          <th>Survival Rate*</th>
-        </tr>
-
-        <tr><td><em>Ulmus propinqua</em> (Sunshine elm)**</td><td>12</td><td>12</td><td>100.0%</td></tr>
-        <tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>287</td><td>437</td><td>88.3%</td></tr>
-        <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>102</td><td>112</td><td>87.7%</td></tr>
-        <tr><td><em>Eriobotrya japonica</em> (loquat)</td><td>18</td><td>20</td><td>87.0%</td></tr>
-        <tr><td><em>Prunus cerasifera</em> (purple-leaf plum)</td><td>23</td><td>29</td><td>87.0%</td></tr>
-        <tr><td><em>Ginkgo biloba</em> (ginkgo)</td><td>69</td><td>81</td><td>83.8%</td></tr>
-        <tr><td><em>Laurus nobilis</em> group (bay laurel)</td><td>12</td><td>12</td><td>83.3%</td></tr>
-        <tr><td><em>Acer rubrum</em> (red maple)</td><td>25</td><td>32</td><td>82.7%</td></tr>
-        <tr><td><em>Quercus shumardii</em> (Shumard oak)</td><td>10</td><td>14</td><td>75.0%</td></tr>
-        <tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>41</td><td>54</td><td>73.6%</td></tr>
-        <tr><td><em>Magnolia grandiflora</em> (southern magnolia)</td><td>20</td><td>23</td><td>70.0%</td></tr>
-        <tr><td><em>Zelkova serrata</em> (Japanese zelkova)</td><td>13</td><td>18</td><td>69.2%</td></tr>
-        <tr><td><em>Pyrus calleryana</em> (Callery pear)</td><td>16</td><td>19</td><td>65.6%</td></tr>
-        <tr><td><em>Liquidambar styraciflua</em> (sweetgum)</td><td>11</td><td>17</td><td>63.6%</td></tr>
-        <tr><td><em>Tristaniopsis laurina</em> (water gum)</td><td>20</td><td>23</td><td>62.5%</td></tr>
-        <tr><td><em>Acer palmatum</em> (Japanese maple)</td><td>23</td><td>29</td><td>60.9%</td></tr>
-        <tr><td><em>Prunus serrulata</em> (Japanese flowering cherry)</td><td>10</td><td>11</td><td>40.0%</td></tr>
-      </table>
-
-      <p class="note">
-        * Only species represented by at least 10 sites are shown.
-      </p>
-
-      <p class="note">
-        ** Ten of twelve observed <em>Ulmus propinqua</em> sites occurred along one residential street segment of approximately 810 feet; two additional sites were located elsewhere in the district.
-      </p>
-    </section>
-
-    <section>
-      <h2>Observed Replacement Trees After Young Tree Loss</h2>
-
-      <p>
-        Where original young trees were absent, replacement plantings were recorded when present and identifiable from the public right-of-way. <em>Lagerstroemia indica</em> (crape myrtle) was by far the most common observed replacement.
-      </p>
-
-      <table>
-        <tr>
-          <th>Species</th>
-          <th>Sites (n)</th>
-          <th>Trees (n)</th>
-        </tr>
-
-        <tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>23</td><td>26</td></tr>
-        <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>6</td><td>6</td></tr>
-        <tr><td><em>Zelkova serrata</em> (Japanese zelkova)</td><td>5</td><td>5</td></tr>
-        <tr><td><em>Prunus cerasifera</em> (purple-leaf plum)</td><td>4</td><td>4</td></tr>
-        <tr><td><em>Acer palmatum</em> (Japanese maple)</td><td>3</td><td>3</td></tr>
-        <tr><td><em>Citrus</em>*</td><td>3</td><td>4</td></tr>
-        <tr><td><em>Laurus nobilis</em> group (bay laurel)</td><td>3</td><td>4</td></tr>
-        <tr><td><em>Acer grandidentatum</em> (bigtooth maple)</td><td>2</td><td>4</td></tr>
-        <tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>2</td><td>2</td></tr>
-        <tr><td><em>Eriobotrya japonica</em> (loquat)</td><td>2</td><td>2</td></tr>
-        <tr><td><em>Fraxinus angustifolia</em> (Raywood ash type)</td><td>2</td><td>2</td></tr>
-        <tr><td><em>Jacaranda mimosifolia</em> (jacaranda)</td><td>2</td><td>2</td></tr>
-        <tr><td><em>Persea americana</em> (avocado)</td><td>2</td><td>2</td></tr>
-        <tr><td><em>Pittosporum tenuifolium</em></td><td>2</td><td>2</td></tr>
-        <tr><td><em>Platanus × acerifolia</em> (London plane)</td><td>2</td><td>3</td></tr>
-        <tr><td><em>Prunus persica</em> (peach)</td><td>2</td><td>2</td></tr>
-        <tr><td><em>Quercus shumardii</em> (Shumard oak)</td><td>2</td><td>3</td></tr>
-        <tr><td><em>Tilia</em>*</td><td>2</td><td>2</td></tr>
-        <tr><td><em>Ulmus parvifolia</em> (Chinese elm)</td><td>2</td><td>2</td></tr>
-      </table>
-
-      <p class="note">
-        * Identification could only be made confidently to genus level from the public right-of-way.
-      </p>
-
-      <p class="note">
-        Numerous additional replacement taxa were observed at single sites only and are not shown here. These one-site records illustrate the wide variety of replacement choices made across the study area.
-      </p>
-    </section>
-
-    <section>
-  <div class="section-label">Group 2</div>
-  <h2>Are Neighborhood Trees Getting Smaller?</h2>
-
-  <p>
-    From the 2020 District 10 dead-tree inventory, I reviewed <strong>all 83 records</strong> where a known former dead park strip street tree had been replaced by a live tree by 2025. Using locally observed canopy spread values from the District 10 inventory, I compared the typical canopy size of former and replacement species.
-  </p>
-
-  <div class="stats">
-    <div class="stat-card">
-      <span class="stat-number">83</span>
-      <span class="stat-label">Qualifying Records</span>
-    </div>
-
-    <div class="stat-card">
-      <span class="stat-number">70</span>
-      <span class="stat-label">Unique Addresses</span>
-    </div>
-
-    <div class="stat-card">
-      <span class="stat-number">-4.3 ft</span>
-      <span class="stat-label">Average Change*</span>
-    </div>
-
-    <div class="stat-card">
-      <span class="stat-number">-3 ft</span>
-      <span class="stat-label">Median Change*</span>
-    </div>
-  </div>
-
-  <div class="callout">
-    <strong>Bottom line:</strong> replacement choices in this group generally trended toward smaller-canopy species.
-  </div>
-
-  <table>
-    <tr>
-      <th>Site-Adjusted Outcome</th>
-      <th>Share of Addresses</th>
-    </tr>
-
-    <tr><td>More than 5 ft smaller</td><td>41.4%</td></tr>
-    <tr><td>Within ±5 ft</td><td>42.9%</td></tr>
-    <tr><td>More than 5 ft larger</td><td>15.7%</td></tr>
-  </table>
-
-  <h3>Confidence in Species Size Estimates</h3>
-
-  <p>
-    Each tree species was assigned a confidence level based on how many District 10 inventory trees were available to estimate its typical canopy spread.
-  </p>
-
-  <table>
-    <tr>
-      <th>Confidence Tier</th>
-      <th>Reference Trees (n)</th>
-      <th>Interpretation</th>
-    </tr>
-
-    <tr><td>High</td><td>30+</td><td>Well represented in the local dataset</td></tr>
-    <tr><td>Medium</td><td>10–29</td><td>Moderately represented</td></tr>
-    <tr><td>Low</td><td>1–9</td><td>Limited local reference data</td></tr>
-  </table>
-
-  <p class="note">
-    The smaller-canopy trend remained when analysis was limited to medium- and high-confidence species comparisons.
-  </p>
-
-  <p class="note">
-    * Change compares replacement species against former species using median locally observed canopy spread. Address-level grouping was used so repeated trees at one property counted as one site.
-  </p>
+<section>
+<h2>Overview</h2>
+<p>
+This project explores how neighborhood street trees change over time in Council District 10. Public street trees in park strips were the focus because these spaces depend on both city systems and adjacent property stewardship.
+</p>
+<p>
+Two groups were reviewed: recently planted young trees from the 2020 inventory, and a separate group of dead, stump, and vacant planting-site records from the same inventory. Together, they offer a pilot look at establishment, replacement, and canopy continuity.
+</p>
 </section>
 
-    <section>
-      <h2>Dead/Vacant Site Outcomes by 2020 Record Type</h2>
+<section>
+<div class="section-label">Group 1</div>
+<h2>Young Street Trees: Five-Year Outcomes</h2>
 
-      <p>
-        The clearest pattern is that records with a known former species were much more likely to have a replacement tree by 2025 than records already listed as vacant in 2020. In other words, once a site appears as simply vacant in the inventory, it may be less likely to be replanted within the following several years.
-      </p>
-
-      <table>
-        <tr>
-          <th>2020 Record Type</th>
-          <th>Total Records</th>
-          <th>New Tree in 2025</th>
-          <th>Vacant in 2025</th>
-          <th>Replacement Rate</th>
-        </tr>
-
-        <tr><td>Known former species</td><td>158</td><td>83</td><td>75</td><td>52.5%</td></tr>
-        <tr><td>Vacant site in 2020 dataset</td><td>185</td><td>39</td><td>146</td><td>21.1%</td></tr>
-        <tr><td>Stump in 2020 dataset</td><td>10</td><td>5</td><td>5</td><td>50.0%</td></tr>
-      </table>
-
-      <p class="note">
-        Percentages are descriptive and should be read as pilot-study findings. They are useful for generating questions about replacement patterns, but they do not explain why any individual planting site remained vacant.
-      </p>
-    </section>
-
-    <section>
-      <h2>Replacement Trees at Dead, Stump, and Vacant Sites</h2>
-
-     <p>
-  Across the full dead/vacant group, <em>Lagerstroemia indica</em> (crape myrtle) was again the most common replacement taxon. It was also the most common species in the younger planting cohort, where it showed strong five-year survival. In the District 10 inventory, its median observed canopy spread was 12 feet—helping illustrate how a successful and frequently selected species can still represent a smaller canopy choice than many former shade trees.
+<p>
+This group includes public street trees that were small in 2020 and likely represented relatively recent plantings. In 2025, each site was checked to determine whether the original tree was still present, whether a new tree had replaced it, or whether the site was vacant.
 </p>
 
-      <table>
-        <tr>
-          <th>Replacement Taxon</th>
-          <th>Sites (n)</th>
-          <th>Trees (n)</th>
-        </tr>
+<div class="stats">
+<div class="stat-card">
+<span class="stat-number">1,310</span>
+<span class="stat-label">Original Trees</span>
+</div>
 
-        <tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>16</td><td>19</td></tr>
-        <tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>5</td><td>5</td></tr>
-        <tr><td><em>Cercis canadensis</em> (eastern redbud)</td><td>5</td><td>5</td></tr>
-        <tr><td><em>Jacaranda mimosifolia</em> (jacaranda)</td><td>5</td><td>5</td></tr>
-        <tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>4</td><td>15</td></tr>
-        <tr><td><em>Ulmus</em>*</td><td>4</td><td>5</td></tr>
-        <tr><td><em>Arbutus</em> 'Marina' (Marina strawberry tree)</td><td>3</td><td>3</td></tr>
-        <tr><td><em>Magnolia grandiflora</em> (southern magnolia)</td><td>3</td><td>3</td></tr>
-        <tr><td><em>Prunus serrulata</em> (Japanese flowering cherry)</td><td>3</td><td>3</td></tr>
-      </table>
+<div class="stat-card">
+<span class="stat-number">1,013</span>
+<span class="stat-label">Still Present</span>
+</div>
 
-      <p class="note">
-        * Identification could only be made confidently to genus level from the public right-of-way.
-      </p>
+<div class="stat-card">
+<span class="stat-number">77.3%</span>
+<span class="stat-label">Overall Survival</span>
+</div>
+</div>
 
-      <p class="note">
-        Trees (n) may exceed Sites (n) where multiple replacement trees occurred at the same address or managed frontage. The <em>Pistacia chinensis</em> count is strongly influenced by one multi-tree frontage.
-      </p>
-    </section>
+<div class="callout">
+<strong>Standout species:</strong> <em>Lagerstroemia indica</em> (crape myrtle) was the most common young-tree species in the dataset and also showed strong five-year survival.
+</div>
+</section>
 
-    <section>
-      <h2>What the Two Groups Suggest Together</h2>
+<section>
+<h2>Site-Adjusted Survival Rates Among Common Species</h2>
 
-      <div class="two-column">
-        <div>
-          <h3>Young-tree establishment</h3>
-          <p>
-            Most small 2020 trees were still present in 2025, but outcomes varied by species and site context. The data are strongest as a pilot snapshot of establishment outcomes, not as proof that one species is universally superior to another.
-          </p>
-        </div>
+<p>
+Because some species were planted in groups at the same address, survival rates below were adjusted so repeated same-species plantings at one property counted as one site.
+</p>
 
-        <div>
-          <h3>Vacancy persistence</h3>
-          <p>
-            The dead/vacant analysis points to a different problem: once a planting site becomes vacant, it may remain vacant for years. This can create long-lasting canopy gaps even when individual young-tree survival is relatively high.
-          </p>
-        </div>
-      </div>
+<table>
+<tr>
+<th>Species</th>
+<th>Sites (n)</th>
+<th>Trees (n)</th>
+<th>Survival</th>
+</tr>
 
-      <p>
-        Together, the findings suggest that street tree canopy outcomes depend on both establishment success and the speed or likelihood of replacement after loss. Future work could compare these patterns across other San José districts, examine socioeconomic and management context, and evaluate whether replacement choices are narrowing or diversifying the street tree palette over time.
-      </p>
-    </section>
+<tr><td><em>Ulmus propinqua</em> (Sunshine elm)*</td><td>12</td><td>12</td><td>100.0%</td></tr>
+<tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>287</td><td>437</td><td>88.3%</td></tr>
+<tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>102</td><td>112</td><td>87.7%</td></tr>
+<tr><td><em>Ginkgo biloba</em> (ginkgo)</td><td>69</td><td>81</td><td>83.8%</td></tr>
+<tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>41</td><td>54</td><td>73.6%</td></tr>
+<tr><td><em>Zelkova serrata</em> (Japanese zelkova)</td><td>13</td><td>18</td><td>69.2%</td></tr>
+<tr><td><em>Tristaniopsis laurina</em> (water gum)</td><td>20</td><td>23</td><td>62.5%</td></tr>
+<tr><td><em>Prunus serrulata</em> (flowering cherry)</td><td>10</td><td>11</td><td>40.0%</td></tr>
+</table>
 
-    <section>
-      <h2>Future Research Questions</h2>
+<p class="note">
+* Ten of twelve observed <em>Ulmus propinqua</em> sites occurred along one residential street segment.
+</p>
+</section>
 
-      <ul>
-        <li>How do these patterns compare to other areas of San José and to the city as a whole?</li>
-        <li>What site, species, or management factors explain why some young trees persist while others are lost?</li>
-        <li>How often do vacant street tree sites remain unplanted over longer time periods?</li>
-        <li>Are some sites repeatedly replanted while other vacancies disappear from active replacement attention?</li>
-        <li>How do resident, HOA, and institutional replacement decisions influence long-term canopy outcomes?</li>
-      </ul>
-    </section>
+<section>
+<h2>Observed Replacement Trees After Young Tree Loss</h2>
 
-  </main>
+<p>
+Where original young trees were absent, replacement plantings were recorded when visible from the public right-of-way. <em>Lagerstroemia indica</em> (crape myrtle) was by far the most common observed replacement.
+</p>
 
-  <footer>
-    Oak & Apricot · Public-interest tree research for residents of the Santa Clara Valley
-  </footer>
+<table>
+<tr>
+<th>Species</th>
+<th>Sites (n)</th>
+</tr>
+
+<tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>23</td></tr>
+<tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>6</td></tr>
+<tr><td><em>Zelkova serrata</em> (Japanese zelkova)</td><td>5</td></tr>
+<tr><td><em>Prunus cerasifera</em> (purple-leaf plum)</td><td>4</td></tr>
+<tr><td><em>Acer palmatum</em> (Japanese maple)</td><td>3</td></tr>
+</table>
+</section>
+
+<section>
+<div class="section-label">Group 2</div>
+<h2>Are Neighborhood Trees Getting Smaller?</h2>
+
+<p>
+From the 2020 District 10 dead-tree inventory, I reviewed <strong>all 83 records</strong> where a known former dead park strip street tree had been replaced by a live tree by 2025. Using locally observed canopy spread values from the District 10 inventory, I compared the typical canopy size of former and replacement species.
+</p>
+
+<div class="stats">
+<div class="stat-card">
+<span class="stat-number">83</span>
+<span class="stat-label">Qualifying Records</span>
+</div>
+
+<div class="stat-card">
+<span class="stat-number">70</span>
+<span class="stat-label">Unique Addresses</span>
+</div>
+
+<div class="stat-card">
+<span class="stat-number">-4.3 ft</span>
+<span class="stat-label">Average Change</span>
+</div>
+
+<div class="stat-card">
+<span class="stat-number">-3 ft</span>
+<span class="stat-label">Median Change</span>
+</div>
+</div>
+
+<div class="callout">
+<strong>Bottom line:</strong> replacement choices in this group generally trended toward smaller-canopy species.
+</div>
+
+<table>
+<tr>
+<th>Site-Adjusted Outcome</th>
+<th>Share of Addresses</th>
+</tr>
+
+<tr><td>More than 5 ft smaller</td><td>41.4%</td></tr>
+<tr><td>Within ±5 ft</td><td>42.9%</td></tr>
+<tr><td>More than 5 ft larger</td><td>15.7%</td></tr>
+</table>
+
+<h3>Confidence in Size Estimates</h3>
+
+<table>
+<tr>
+<th>Confidence</th>
+<th>Reference Trees (n)</th>
+</tr>
+
+<tr><td>High</td><td>30+</td></tr>
+<tr><td>Medium</td><td>10–29</td></tr>
+<tr><td>Low</td><td>1–9</td></tr>
+</table>
+
+<p class="note">
+The smaller-canopy trend remained when limited to medium- and high-confidence species comparisons.
+</p>
+</section>
+
+<section>
+<h2>Dead/Vacant Site Outcomes by 2020 Record Type</h2>
+
+<table>
+<tr>
+<th>2020 Record Type</th>
+<th>Total</th>
+<th>New Tree in 2025</th>
+<th>Vacant in 2025</th>
+<th>Replacement Rate</th>
+</tr>
+
+<tr><td>Known former species</td><td>158</td><td>83</td><td>75</td><td>52.5%</td></tr>
+<tr><td>Vacant site</td><td>185</td><td>39</td><td>146</td><td>21.1%</td></tr>
+<tr><td>Stump</td><td>10</td><td>5</td><td>5</td><td>50.0%</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Replacement Trees at Dead, Stump, and Vacant Sites</h2>
+
+<p>
+<em>Lagerstroemia indica</em> (crape myrtle) again appeared as the most common replacement taxon. It was also the most common species in the younger planting cohort, where it showed strong five-year survival. In the District 10 inventory, its median observed canopy spread was <strong>12 feet</strong>—illustrating how a successful and frequently selected species can still represent a smaller canopy choice than many former shade trees.
+</p>
+
+<table>
+<tr>
+<th>Replacement Taxon</th>
+<th>Sites (n)</th>
+</tr>
+
+<tr><td><em>Lagerstroemia indica</em> (crape myrtle)</td><td>16</td></tr>
+<tr><td><em>Acer × freemanii</em> (Freeman maple)</td><td>5</td></tr>
+<tr><td><em>Cercis canadensis</em> (redbud)</td><td>5</td></tr>
+<tr><td><em>Jacaranda mimosifolia</em> (jacaranda)</td><td>5</td></tr>
+<tr><td><em>Pistacia chinensis</em> (Chinese pistache)</td><td>4</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What the Two Groups Suggest Together</h2>
+
+<div class="two-column">
+<div>
+<h3>Young-tree establishment</h3>
+<p>
+Most small 2020 trees were still present in 2025, though outcomes varied by species and site context.
+</p>
+</div>
+
+<div>
+<h3>Vacancy persistence</h3>
+<p>
+Once a planting site becomes vacant, it may remain vacant for years, creating lasting canopy gaps.
+</p>
+</div>
+</div>
+
+<p>
+Together, these groups suggest that neighborhood canopy depends on both tree survival and how quickly lost trees are replaced.
+</p>
+</section>
+
+<section>
+<h2>Future Questions</h2>
+
+<ul>
+<li>How do these patterns compare across other San José districts?</li>
+<li>Which species and site factors best predict survival?</li>
+<li>How long do vacant street tree sites typically remain empty?</li>
+<li>Are replacement choices shifting toward smaller or larger canopy trees over time?</li>
+</ul>
+</section>
+
+</main>
+
+<footer>
+Oak & Apricot · Public-interest tree research for residents of the Santa Clara Valley
+</footer>
+
 </body>
 </html>
